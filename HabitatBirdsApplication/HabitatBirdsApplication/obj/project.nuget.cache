@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "GDI18lKcoKNPbrUDrPS9rrkyhAdt510dRinMFZ4pBqspL2zApC/hYUZm7AnPhuQUqzcO65OCb+l/eeL90lHG2Q==",
+  "dgSpecHash": "NkFG4XvUo/w3/ywReaPzN78OcfYMY0eYBmuPW3XKyQrRSE6CjYPA/oylDp+BHrHpTtO8PhaAMHhCK4xQJoA2fg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Jonatan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jonatan\\.nuget\\packages\\bitmiracle.libtiff.net\\2.4.649\\bitmiracle.libtiff.net.2.4.649.nupkg.sha512",
+    "C:\\Users\\Jonatan\\.nuget\\packages\\ironsoftware.system.drawing\\2023.4.4\\ironsoftware.system.drawing.2023.4.4.nupkg.sha512",
+    "C:\\Users\\Jonatan\\.nuget\\packages\\ironxl.excel\\2023.5.4\\ironxl.excel.2023.5.4.nupkg.sha512",
+    "C:\\Users\\Jonatan\\.nuget\\packages\\sixlabors.imagesharp\\3.0.0\\sixlabors.imagesharp.3.0.0.nupkg.sha512",
+    "C:\\Users\\Jonatan\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512"
+  ],
   "logs": []
 }
