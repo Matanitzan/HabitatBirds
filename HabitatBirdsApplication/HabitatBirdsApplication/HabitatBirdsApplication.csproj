@@ -31,4 +31,8 @@
     <Resource Include="News From The South.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
 </Project>
