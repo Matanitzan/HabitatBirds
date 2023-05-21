@@ -18,6 +18,8 @@ using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 using IronXL;
+using System.Reflection.Metadata;
+
 namespace HabitatBirdsApplication
 {
     /// <summary>
@@ -26,7 +28,7 @@ namespace HabitatBirdsApplication
     public partial class NewCage : System.Windows.Window
     {
         List<Cage> cages ;
-        string path = @"C:\Users\Jonatan\Desktop\CageFile.xlsx";
+        string path = "CageFile.xlsx";
         public NewCage()
         {
             InitializeComponent();
@@ -70,7 +72,7 @@ namespace HabitatBirdsApplication
 
             WorkSheet sheet = myWorkBook.GetWorkSheet("Sheet1");
 
-            string index = (cages.Count()+1).ToString();
+            string index = "3";
             sheet['A'+index].Value = cage.getSerial();
             sheet['B'+index].Value = cage.getMaterial();
             sheet['C'+index].Value = cage.getLenght();
