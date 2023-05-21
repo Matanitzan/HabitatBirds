@@ -24,5 +24,12 @@ namespace HabitatBirdsApplication
         {
             InitializeComponent();
         }
+
+        private void tempDelete(object sender, RoutedEventArgs e)
+        {
+            MainFram mainFram = new MainFram();
+            this.Visibility = Visibility.Hidden;
+            mainFram.Show();
+        }
     }
 }

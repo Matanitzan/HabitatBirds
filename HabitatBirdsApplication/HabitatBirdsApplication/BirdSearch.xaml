@@ -1,0 +1,20 @@
+﻿<Window x:Class="HabitatBirdsApplication.BirdSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HabitatBirdsApplication"
+        mc:Ignorable="d"
+        Title="BirdSearch" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/News From The South.png"/>
+        </Grid.Background>
+        <Label Content="Search By Sireal Number:" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Height="36" Width="277" FontFamily="Segoe UI Black" FontSize="18" Foreground="White"/>
+        <TextBox x:Name="searchSerialNumberText" HorizontalAlignment="Left" Margin="256,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Height="44"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="459,23,0,0" VerticalAlignment="Top" Height="41" Width="77" Click="searchSirealBut"/>
+        <TextBox x:Name="searchResultsTextBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="126,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="412" Height="206" TextChanged="searchResultsTextBox_TextChanged"/>
+
+
+    </Grid>
+</Window>
