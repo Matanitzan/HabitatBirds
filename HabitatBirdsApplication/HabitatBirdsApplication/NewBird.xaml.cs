@@ -29,24 +29,31 @@ namespace HabitatBirdsApplication
     /// </summary>
     public partial class NewBird : Window
     {
+        // Properties to hold gender, species, and subspecies data
         public string[] ganders { get; set;}
         public string[] species { get; set; }
         public string[] subspecies { get; set; }
+        // Variables to store selected species and subspecies
         public string selectSpecies;
         public string selectSubspecies;
+        // Variable to store selected gender
         public string gender;
+        // Path to the Excel file
         string fileNameXls = @"C:\Users\Osnat\Desktop\Birds.xlsx";
-        private int nR = int.Parse(ConfigurationManager.AppSettings["LastRowIndex"]) + 1;
-        //private int nR = 2;
+
 
 
         public NewBird()
         {
+            // Initialize gender, species, and subspecies data
             InitializeComponent();
             ganders = new string [] { "Male", "Female" };
             species = new string[] { "American Gouldian", "European Gouldian", "Australian Gouldian" };
             subspecies = new string[] { "North America", "Central America", "South America", "Eastern Europe", "Western Europe", "Central Australia", "Coast Cities" };
+            // Set the data context to the current instance of the class
             DataContext = this;
+            fatherSerialText.Text = "777";
+            motherSerialText.Text = "777";
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -58,7 +65,8 @@ namespace HabitatBirdsApplication
         {
 
         }
-        private Boolean isValidSerial(string serial,string type)
+        // Method to validate the serial number format and uniqueness
+        public Boolean isValidSerial(string serial,string type)
         {
             if (string.IsNullOrEmpty(serial))
             {
@@ -75,7 +83,58 @@ namespace HabitatBirdsApplication
             }
             return true;
         }
+        // Method to check if the serial number is unique
+        public bool IsSerialNumberUnique(string serialNumber)
+        {
+            try
+            {
+                WorkBook workBook = WorkBook.Load(fileNameXls);
+                WorkSheet workSheet = workBook.GetWorkSheet("Birds");
 
+                // Iterate over the rows in the worksheet and check for matching serial numbers
+                for (int i = 2; i <= workSheet.RowCount; i++)
+                {
+                    string value = workSheet["A" + i].Value.ToString();
+                    if (value.Equals(serialNumber))
+                    {
+                        MessageBox.Show("Serial number found, not unique");
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error - unable to search in Excel file\n" + ex.Message);
+            }
+            return true;
+        }
+
+        //private bool IsCageIn(string cage)
+        //{
+        //    try
+        //    {
+        //        WorkBook workBook = WorkBook.Load(fileNameXls);
+        //        WorkSheet workSheet = workBook.GetWorkSheet("Cage");
+
+        //        // Iterate over the rows in the worksheet and check for matching serial numbers
+        //        for (int i = 2; i <= workSheet.RowCount; i++)
+        //        {
+        //            string value = workSheet["A" + i].Value.ToString();
+        //            if (value.Equals(cage))
+        //            {
+        //                MessageBox.Show("Cage name does not exist in the system.");
+        //                return false;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error - unable to search in Excel file\n" + ex.Message);
+        //    }
+        //    return true;
+        //}
+
+        // Method to validate the subspecies based on the selected species
         private Boolean isValidSubspecies(string species, string subspecies)
         {
             bool flag = (species == "American Gouldian") && (subspecies == "North America" || subspecies == "Central America" || subspecies == "South America");
@@ -88,6 +147,8 @@ namespace HabitatBirdsApplication
             }
             return flag;
         }
+
+        // Method to check if a string is not null or empty
         private Boolean isNotNullOrEmpty(string s, string box)
         {
             if (string.IsNullOrEmpty(s))
@@ -98,6 +159,7 @@ namespace HabitatBirdsApplication
             return true;
         }
 
+        // Event handler for the submit button click
         private void sumbit(object sender, RoutedEventArgs e)
         {
             string serialNumber = serialNumberText.Text;
@@ -105,18 +167,27 @@ namespace HabitatBirdsApplication
             string cageNumber = cageNumberText.Text;
             string fatherSerial = fatherSerialText.Text;
             string motherSerial = motherSerialText.Text;
-            if(isNotNullOrEmpty(serialNumber,"Srial Number") && isNotNullOrEmpty(hatchDate, "Hatch Date") && isNotNullOrEmpty(cageNumber, "Cage Number") && isNotNullOrEmpty(fatherSerial, "Father Serial") && isNotNullOrEmpty(motherSerial,"Mother Serial") && isNotNullOrEmpty(selectSpecies, "Species") && isNotNullOrEmpty(selectSubspecies, "Subspecies") && isNotNullOrEmpty(gender, "Gender"))
+
+            // Validate the input fields
+            if (isNotNullOrEmpty(serialNumber,"Srial Number") && isNotNullOrEmpty(hatchDate, "Hatch Date") && isNotNullOrEmpty(cageNumber, "Cage Number") && isNotNullOrEmpty(fatherSerial, "Father Serial") && isNotNullOrEmpty(motherSerial,"Mother Serial") && isNotNullOrEmpty(selectSpecies, "Species") && isNotNullOrEmpty(selectSubspecies, "Subspecies") && isNotNullOrEmpty(gender, "Gender"))
             {
-                if(isValidSerial(serialNumber, "Serial Number")&& isValidSerial(motherSerial, "Mother Serial") && isValidSerial(fatherSerial,"Father Serial"))
+                if(isValidSerial(serialNumber, "Serial Number")&& IsSerialNumberUnique(serialNumber) &&isValidSerial(motherSerial, "Mother Serial") && isValidSerial(fatherSerial,"Father Serial"))
                 {
                     MessageBox.Show(serialNumber + " " + hatchDate + " " + cageNumber + " " + fatherSerial + " " + motherSerial + " " + selectSpecies + " " + selectSubspecies + " " + gender);
                     openFile(serialNumber, hatchDate, cageNumber, fatherSerial, motherSerial, selectSpecies, selectSubspecies, gender);
+                    serialNumberText.Text = " ";
+                    hatchDateText.Text = " ";
+                    cageNumberText.Text = " ";
+                    fatherSerialText.Text = "777";
+                    motherSerialText.Text = "777";
+                    genderText.SelectedItem = null;
+                    speciesOfBirdText.SelectedItem = null;
+                    subsprciesText.SelectedItem = null;
                 }
-              
             }
-
         }
 
+        // Event handler for the species selection change
         private void speciesOfBirdText_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var select = sender as ComboBox;
@@ -140,18 +211,21 @@ namespace HabitatBirdsApplication
             }
         }
 
+        // Event handler for the subspecies selection change
         private void subsprciesText_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var select = sender as ComboBox;
             selectSubspecies = select.SelectedItem as string;
         }
 
+        // Event handler for the gender selection change
         private void genderText_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var select = sender as ComboBox;
             gender = select.SelectedItem as string;
         }
 
+        // Method to open the Excel file and save the bird information
         private void openFile(string serialNumber, string hatchDate, string cageNumber, string fatherSerial, string motherSerial, string selectSpecies, string selectSubspecies, string gender)
         {
             try
@@ -159,17 +233,7 @@ namespace HabitatBirdsApplication
                 WorkBook workBook = WorkBook.Load(fileNameXls);
                 WorkSheet workSheet = workBook.GetWorkSheet("Birds");
 
-
-                //int lastRow = workSheet.Cells.Find("*", System.Reflection.Missing.Value,
-                //                   System.Reflection.Missing.Value, System.Reflection.Missing.Value,
-                //                   XlSearchOrder.xlByRows, XlSearchDirection.xlPrevious,
-                //                   false, System.Reflection.Missing.Value, System.Reflection.Missing.Value).Row;
-                //lastRow++;
-
-                // Find the next available row in the worksheet
-                string nextRow = nR.ToString();
-                //string nextRow = lastRow.ToString();
-
+                string nextRow = (workSheet.RowCount+1).ToString();
 
                 // Set the cell values for the bird information
                 workSheet['A'+nextRow].Value = serialNumber;
@@ -178,17 +242,11 @@ namespace HabitatBirdsApplication
                 workSheet['D'+nextRow].Value = hatchDate;
                 workSheet['E'+nextRow].Value = gender;
                 workSheet['F'+nextRow].Value = cageNumber;
-                workSheet['G'+nextRow].Value = fatherSerial;
-                workSheet['H'+nextRow].Value = motherSerial;
-                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                config.AppSettings.Settings["LastRowIndex"].Value = nR.ToString();
-                config.Save(ConfigurationSaveMode.Modified);
-
-                
-                nR++;
+                workSheet['G'+nextRow].Value = "777";
+                workSheet['H'+nextRow].Value = "777";
 
                 // Save the workbook
-                workBook.Save();
+                workBook.SaveAs(fileNameXls);
             }
             catch (Exception)
             {
@@ -196,6 +254,13 @@ namespace HabitatBirdsApplication
             }
         }
 
+        // Event handler for the back button click
+        private void beckButton(object sender, RoutedEventArgs e)
+        {
+            MainPage mainPage = new MainPage();
+            this.Visibility = Visibility.Hidden;
+            mainPage.Show();
+        }
 
 
     }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HabitatBirdsApplication"
         mc:Ignorable="d"
         Title="NewBird" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="0,1,0,-1">
         <Grid.Background>
             <ImageBrush ImageSource="/News From The South.png"/>
         </Grid.Background>
@@ -29,26 +29,32 @@
         <Label Content="Mother's serial:" HorizontalAlignment="Left" Margin="10,375,0,0" VerticalAlignment="Top" Foreground="#FFFDFDFD" FontFamily="Segoe UI Black" FontSize="18"/>
         <TextBox x:Name="serialNumberText" HorizontalAlignment="Left" Margin="170,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Height="26" FontSize="14" FontFamily="Segoe UI Black">
             <TextBox.Background>
-                <SolidColorBrush Color="#FFE2E2E2" Opacity="0.7"/>
+                <SolidColorBrush Color="White" Opacity="1"/>
             </TextBox.Background>
         </TextBox>
         <TextBox x:Name="cageNumberText" HorizontalAlignment="Left" Margin="170,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Height="26" FontFamily="Segoe UI Black" FontSize="14">
             <TextBox.Background>
-                <SolidColorBrush Color="#FFE2E2E2" Opacity="0.7"/>
+                <SolidColorBrush Color="White" Opacity="1"/>
             </TextBox.Background>
         </TextBox>
         <TextBox x:Name="fatherSerialText" HorizontalAlignment="Left" Margin="170,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Height="26" TextChanged="TextBox_TextChanged_1" FontFamily="Segoe UI Black" FontSize="14">
             <TextBox.Background>
-                <SolidColorBrush Color="#FFE2E2E2" Opacity="0.7"/>
+                <SolidColorBrush Color="White" Opacity="1"/>
             </TextBox.Background>
         </TextBox>
         <TextBox x:Name="motherSerialText" HorizontalAlignment="Left" Margin="170,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Height="26" FontFamily="Segoe UI Black" FontSize="14">
             <TextBox.Background>
-                <SolidColorBrush Color="#FFE2E2E2" Opacity="0.7"/>
+                <SolidColorBrush Color="White" Opacity="1"/>
             </TextBox.Background>
         </TextBox>
         <DatePicker x:Name="hatchDateText" HorizontalAlignment="Left" Margin="170,180,0,0" VerticalAlignment="Top" Height="28" Width="172" BorderBrush="{x:Null}" Background="White" Foreground="#FF333333" RenderTransformOrigin="1.477,0.394" Cursor="Cross" FontFamily="Segoe UI Black" FontSize="14"/>
-        <ComboBox x:Name="genderText" HorizontalAlignment="Left" Margin="170,230,0,0" VerticalAlignment="Top" Width="172" Height ="26" ItemsSource ="{Binding ganders}" IsEditable="True" SelectionChanged="genderText_SelectionChanged">
+        <ComboBox x:Name="genderText" HorizontalAlignment="Left" Margin="170,230,0,0" VerticalAlignment="Top" Width="172" Height ="26" ItemsSource ="{Binding ganders}" IsEditable="True" SelectionChanged="genderText_SelectionChanged" FontFamily="Segoe UI Black" FontSize="14">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFE2E2E2" Offset="0.78"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
         </ComboBox>
         <ComboBox x:Name="speciesOfBirdText" HorizontalAlignment="Left"  Margin="171,80,0,0" VerticalAlignment="Top" Width="172" Height ="26" ItemsSource ="{Binding species}" IsEditable="True" SelectionChanged="speciesOfBirdText_SelectionChanged" FontFamily="Segoe UI Black" FontSize="14" >
             <ComboBox.BorderBrush>
@@ -60,7 +66,17 @@
         </ComboBox>
         <ComboBox x:Name="subsprciesText" HorizontalAlignment="Left" Margin="170,130,0,0" VerticalAlignment="Top" Width="172" Height ="26" IsEditable="True" SelectionChanged="subsprciesText_SelectionChanged" FontFamily="Segoe UI Black" FontSize="14">
         </ComboBox>
-        <Button Content="ADD BIRD" HorizontalAlignment="Left" Margin="608,347,0,0" VerticalAlignment="Top" Height="35" Width="121" Click="sumbit"/>
+        <Button Content="ADD BIRD" HorizontalAlignment="Left" Margin="615,357,0,0" VerticalAlignment="Top" Height="45" Width="133" Click="sumbit" Foreground="#FFFFFEFE" FontFamily="Segoe UI Black" FontSize="16" FontWeight="Bold">
+            <Button.Background>
+                <SolidColorBrush Color="#FFA8A6A1" Opacity="0.7"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="690,25,0,0" VerticalAlignment="Top" Click="beckButton" Width="60" Height="31" FontFamily="Segoe UI Black" Foreground="White" FontSize="14">
+            <Button.Background>
+                <SolidColorBrush Color="#FFA8A6A1" Opacity="0.7"/>
+            </Button.Background>
+        </Button>
+        
     </Grid>
 </Window>
     
