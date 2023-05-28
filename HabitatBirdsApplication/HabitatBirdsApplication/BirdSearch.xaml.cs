@@ -22,7 +22,7 @@ namespace HabitatBirdsApplication
         public string selectedGender;
 
         // Path to the Excel file
-        string fileNameXls = @"C:\Users\Osnat\Desktop\Birds.xlsx";
+        string fileNameXls = @"C:\Users\Matan\Desktop\Birds.xlsx";
 
         public BirdSearch()
         {
@@ -91,7 +91,7 @@ namespace HabitatBirdsApplication
         }
 
         // Event handler for select button click
-        private void SelectButton_Click(object sender, RoutedEventArgs e)
+        private void btnShowBird(object sender, RoutedEventArgs e)
         {
             Button selectButton = (Button)sender;
             Bird selectedBird = (Bird)selectButton.DataContext;
@@ -103,7 +103,10 @@ namespace HabitatBirdsApplication
             string hatchDate = selectedBird.HatchDate;
 
             // Display the selected bird's details or perform any other actions
-            MessageBox.Show($"Selected Bird:\nSerial Number: {serialNumber}\nSpecies: {species}\nHatch Date: {hatchDate}");
+            ShowBird showBird = new ShowBird(selectedBird);
+            this.Visibility = Visibility.Hidden;
+            showBird.Show();
+            //MessageBox.Show($"Selected Bird:\nSerial Number: {serialNumber}\nSpecies: {species}\nHatch Date: {hatchDate}");
         }
         private Boolean isValidSerial(string serial, string type)
         {

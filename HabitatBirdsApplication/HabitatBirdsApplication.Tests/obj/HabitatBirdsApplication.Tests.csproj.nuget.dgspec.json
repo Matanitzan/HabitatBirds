@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication.Tests\\HabitatBirdsApplication.Tests.csproj": {}
+    "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication.Tests\\HabitatBirdsApplication.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication.Tests\\HabitatBirdsApplication.Tests.csproj": {
+    "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication.Tests\\HabitatBirdsApplication.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication.Tests\\HabitatBirdsApplication.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication.Tests\\HabitatBirdsApplication.Tests.csproj",
         "projectName": "HabitatBirdsApplication.Tests",
-        "projectPath": "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication.Tests\\HabitatBirdsApplication.Tests.csproj",
-        "packagesPath": "C:\\Users\\Osnat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication.Tests\\obj\\",
+        "projectPath": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication.Tests\\HabitatBirdsApplication.Tests.csproj",
+        "packagesPath": "C:\\Users\\Matan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Osnat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Matan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj": {
-                "projectPath": "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj"
+              "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj": {
+                "projectPath": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj"
               }
             }
           }
@@ -44,6 +44,10 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "IronXL.Excel": {
+              "target": "Package",
+              "version": "[2023.5.4, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.5.0, )"
@@ -85,17 +89,17 @@
         }
       }
     },
-    "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj": {
+    "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
+        "projectUniqueName": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
         "projectName": "HabitatBirdsApplication",
-        "projectPath": "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
-        "packagesPath": "C:\\Users\\Osnat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\obj\\",
+        "projectPath": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
+        "packagesPath": "C:\\Users\\Matan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Osnat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Matan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -128,6 +132,14 @@
             "IronXL.Excel": {
               "target": "Package",
               "version": "[2023.5.4, )"
+            },
+            "Microsoft.CSharp": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             }
           },
           "imports": [

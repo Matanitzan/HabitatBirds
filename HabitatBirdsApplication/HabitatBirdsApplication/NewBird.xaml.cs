@@ -39,7 +39,7 @@ namespace HabitatBirdsApplication
         // Variable to store selected gender
         public string gender;
         // Path to the Excel file
-        string fileNameXls = @"C:\Users\Osnat\Desktop\Birds.xlsx";
+        string fileNameXls = @"C:\Users\Matan\Desktop\Birds.xlsx";
 
 
 
@@ -109,43 +109,29 @@ namespace HabitatBirdsApplication
             return true;
         }
 
-        //private bool IsCageIn(string cage)
-        //{
-        //    try
-        //    {
-        //        WorkBook workBook = WorkBook.Load(fileNameXls);
-        //        WorkSheet workSheet = workBook.GetWorkSheet("Cage");
-
-        //        // Iterate over the rows in the worksheet and check for matching serial numbers
-        //        for (int i = 2; i <= workSheet.RowCount; i++)
-        //        {
-        //            string value = workSheet["A" + i].Value.ToString();
-        //            if (value.Equals(cage))
-        //            {
-        //                MessageBox.Show("Cage name does not exist in the system.");
-        //                return false;
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error - unable to search in Excel file\n" + ex.Message);
-        //    }
-        //    return true;
-        //}
-
-        // Method to validate the subspecies based on the selected species
-        private Boolean isValidSubspecies(string species, string subspecies)
+        private bool IsCageIn(string cage)
         {
-            bool flag = (species == "American Gouldian") && (subspecies == "North America" || subspecies == "Central America" || subspecies == "South America");
-            flag = flag || (species == "European Gouldian" && (subspecies == "Eastern Europe" || subspecies == "Western Europe"));
-            flag = flag || (species == "Australian Gouldian" && subspecies == "Central Australia" || subspecies == "Coast Cities");
-            if (!flag)
+            try
             {
-                MessageBox.Show("Error: Subspecies does not match the species!");
-                return false;
+                WorkBook workBook = WorkBook.Load(fileNameXls);
+                WorkSheet workSheet = workBook.GetWorkSheet("Cage");
+
+                // Iterate over the rows in the worksheet and check for matching serial numbers
+                for (int i = 2; i <= workSheet.RowCount; i++)
+                {
+                    string value = workSheet["A" + i].Value.ToString();
+                    if (value.Equals(cage))
+                    {
+                        MessageBox.Show("Cage name does not exist in the system.");
+                        return false;
+                    }
+                }
             }
-            return flag;
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error - unable to search in Excel file\n" + ex.Message);
+            }
+            return true;
         }
 
         // Method to check if a string is not null or empty
@@ -171,7 +157,7 @@ namespace HabitatBirdsApplication
             // Validate the input fields
             if (isNotNullOrEmpty(serialNumber,"Srial Number") && isNotNullOrEmpty(hatchDate, "Hatch Date") && isNotNullOrEmpty(cageNumber, "Cage Number") && isNotNullOrEmpty(fatherSerial, "Father Serial") && isNotNullOrEmpty(motherSerial,"Mother Serial") && isNotNullOrEmpty(selectSpecies, "Species") && isNotNullOrEmpty(selectSubspecies, "Subspecies") && isNotNullOrEmpty(gender, "Gender"))
             {
-                if(isValidSerial(serialNumber, "Serial Number")&& IsSerialNumberUnique(serialNumber) &&isValidSerial(motherSerial, "Mother Serial") && isValidSerial(fatherSerial,"Father Serial"))
+                if(isValidSerial(serialNumber, "Serial Number")&& IsSerialNumberUnique(serialNumber) &&isValidSerial(motherSerial, "Mother Serial") && isValidSerial(fatherSerial,"Father Serial")&& IsCageIn(cageNumber))
                 {
                     MessageBox.Show(serialNumber + " " + hatchDate + " " + cageNumber + " " + fatherSerial + " " + motherSerial + " " + selectSpecies + " " + selectSubspecies + " " + gender);
                     openFile(serialNumber, hatchDate, cageNumber, fatherSerial, motherSerial, selectSpecies, selectSubspecies, gender);

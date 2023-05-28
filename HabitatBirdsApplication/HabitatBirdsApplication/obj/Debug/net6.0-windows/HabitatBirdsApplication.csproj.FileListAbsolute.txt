@@ -45,3 +45,15 @@ C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplicat
 C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\bin\Debug\net6.0-windows\SixLabors.ImageSharp.dll
 C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\ShowBird.g.cs
 C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\ShowBird.baml
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\BirdSearch.g.cs
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\CageInfo.g.cs
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\FindCage.g.cs
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\MainPage.g.cs
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\NewBird.g.cs
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\NewCage.g.cs
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\BirdSearch.baml
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\CageInfo.baml
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\FindCage.baml
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\MainPage.baml
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\NewBird.baml
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\NewCage.baml

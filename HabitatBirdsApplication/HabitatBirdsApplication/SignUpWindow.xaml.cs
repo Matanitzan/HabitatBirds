@@ -47,7 +47,7 @@ namespace HabitatBirdsApplication
             string filePath = @"C:\Users\Matan\Desktop\Birds.xlsx";
 
             WorkBook workbook = WorkBook.Load(filePath);
-            WorkSheet worksheet = workbook.GetWorkSheet("Birds");
+            WorkSheet worksheet = workbook.GetWorkSheet("Users");
             
             string lastRow = (worksheet.RowCount+1).ToString();
 
@@ -88,7 +88,7 @@ namespace HabitatBirdsApplication
 
             string filePath = @"C:\Users\Matan\Desktop\Birds.xlsx";
             WorkBook workbook = WorkBook.Load(filePath);
-            WorkSheet worksheet = workbook.GetWorkSheet("Birds");
+            WorkSheet worksheet = workbook.GetWorkSheet("Users");
 
             for (int row = 2; row <= worksheet.RowCount; row++) 
             {

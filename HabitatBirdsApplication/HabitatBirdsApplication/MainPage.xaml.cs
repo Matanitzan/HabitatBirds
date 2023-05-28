@@ -24,15 +24,15 @@ namespace HabitatBirdsApplication
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
+        //private void Button_Click_1(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
         private void addNewBird(object sender, RoutedEventArgs e)
         {
@@ -48,6 +48,25 @@ namespace HabitatBirdsApplication
             birdSearch.Show();
 
 
+        }
+
+        //private void Button_Click_2(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        private void cageSearch(object sender, RoutedEventArgs e)
+        {
+            FindCage findCage = new FindCage();
+            this.Visibility = Visibility.Hidden;
+            findCage.Show();
+        }
+
+        private void addNewCge(object sender, RoutedEventArgs e)
+        {
+            NewCage newCage = new NewCage();
+            this.Visibility = Visibility.Hidden;
+            newCage.Show();
         }
     }
 }

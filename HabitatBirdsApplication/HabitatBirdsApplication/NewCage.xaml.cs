@@ -29,7 +29,7 @@ namespace HabitatBirdsApplication
     {
         List<Cage> cages ;
         Cage cage;
-        string path = @"C:\Users\Jonatan\Desktop\CageFile.xlsx";
+        string path = @"C:\Users\Matan\Desktop\Birds.xlsx";
         public NewCage()
         {
             InitializeComponent();
@@ -65,7 +65,7 @@ namespace HabitatBirdsApplication
         {
             
             WorkBook myWorkBook = WorkBook.Load(path);
-            WorkSheet sheet = myWorkBook.GetWorkSheet("Sheet1");
+            WorkSheet sheet = myWorkBook.GetWorkSheet("Cage");
             if (checkSerial(SerialNumberText.Text) && checkNumbers(LenghtCageText.Text) && checkNumbers(WidthCageText.Text) && checkNumbers(HeightCageText.Text))
             {
                 if (findSerial(SerialNumberText.Text,sheet))
@@ -96,7 +96,6 @@ namespace HabitatBirdsApplication
                 {
                     MessageBox.Show("Serial number has type allredy exsist");
                 }
-
                 
             }
             else {
@@ -143,6 +142,12 @@ namespace HabitatBirdsApplication
             }
             return true;
         }
-        
+
+        private void backButton(object sender, RoutedEventArgs e)
+        {
+            MainPage mainPage = new MainPage();
+            this.Visibility = Visibility.Hidden;
+            mainPage.Show();
+        }
     }
 }

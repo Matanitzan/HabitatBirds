@@ -5,19 +5,16 @@ winexe
 C#
 .cs
 C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\
-
 HabitatBirdsApplication
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-
 C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\App.xaml
-31702463268
+91200604799
 
-6-1368060125
+13691688435
 213190309414
-MainWindow.xaml;ShowBird.xaml;SignUpWindow.xaml;
-
+BirdSearch.xaml;CageInfo.xaml;FindCage.xaml;MainPage.xaml;MainWindow.xaml;NewBird.xaml;NewCage.xaml;ShowBird.xaml;SignUpWindow.xaml;
 
 False
 

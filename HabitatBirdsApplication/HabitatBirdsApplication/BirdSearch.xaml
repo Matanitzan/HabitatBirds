@@ -30,7 +30,7 @@
                     <GridViewColumn Header="Select" Width="80">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Click="SelectButton_Click">
+                                <Button Click="btnShowBird">
                                     <Grid Width="20" Height="20">
                                         <TextBlock FontFamily="{StaticResource MaterialDesignIcons}" Text="&#xE5CA;" FontSize="16" Foreground="Green" />
                                     </Grid>

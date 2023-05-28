@@ -81,14 +81,14 @@ namespace HabitatBirdsApplication
                 // If the user-entered data exists in the excel file, go to the main window
                 if (foundUser && foundPassword)
                 {
-                    Bird bird = new Bird("123", "Sparrow", "Common", "2023-01-01", "Male", "Cage 1", "456", "789");
-                    ShowBird showBird = new ShowBird(bird);
-                    showBird.Show();
-                    this.Close();
-
-                    //MainWindow mainWindow = new MainWindow();
-                    //mainWindow.Show();
+                    //Bird bird = new Bird("123", "Sparrow", "Common", "2023-01-01", "Male", "Cage 1", "456", "789");
+                    //ShowBird showBird = new ShowBird(bird);
+                    //showBird.Show();
                     //this.Close();
+
+                    MainPage mainPage = new MainPage();
+                    mainPage.Show();
+                    this.Close();
                 }
                 else // Otherwise, display an error message
                 {

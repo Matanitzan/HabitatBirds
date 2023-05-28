@@ -6,65 +6,42 @@
         xmlns:local="clr-namespace:HabitatBirdsApplication"
         mc:Ignorable="d"
         Title="CageInfo" Height="450" Width="700">
-    <Window.Background>
-        <ImageBrush ImageSource="/InfoCagePhoto.jpg"/>
-    </Window.Background>
+
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/News From The South.png"/>
         </Grid.Background>
+
         <Label x:Name="SerialNumberName" Content="" HorizontalAlignment="Left" Margin="132,45,0,0" Width="100" FontFamily="Segoe UI Black" FontSize="14"  VerticalAlignment="Top"/>
-        <Label x:Name="WidthName" Content="" HorizontalAlignment="Left" Margin="123,79,0,0" Width="100" FontFamily="Segoe UI Black" FontSize="14"  VerticalAlignment="Top"/>
-        <Label x:Name="LengthName" Content="" HorizontalAlignment="Left" Margin="123,113,0,0" Width="100" FontFamily="Segoe UI Black" FontSize="14"  VerticalAlignment="Top"/>
-        <Label x:Name="HeigthName" Content="" HorizontalAlignment="Left" Margin="123,147,0,0" Width="100" FontFamily="Segoe UI Black" FontSize="14"  VerticalAlignment="Top"/>
-        <Label x:Name="MetrialName" Content="" HorizontalAlignment="Left" Margin="123,188,0,0" Width="100" FontFamily="Segoe UI Black" FontSize="14"  VerticalAlignment="Top"/>
+        <Label x:Name="WidthName" Content="" HorizontalAlignment="Left" Margin="132,79,0,0" Width="100" FontFamily="Segoe UI Black" FontSize="14"  VerticalAlignment="Top"/>
+        <Label x:Name="LengthName" Content="" HorizontalAlignment="Left" Margin="132,113,0,0" Width="100" FontFamily="Segoe UI Black" FontSize="14"  VerticalAlignment="Top"/>
+        <Label x:Name="HeigthName" Content="" HorizontalAlignment="Left" Margin="132,147,0,0" Width="100" FontFamily="Segoe UI Black" FontSize="14"  VerticalAlignment="Top"/>
+        <Label x:Name="MetrialName" Content="" HorizontalAlignment="Left" Margin="132,188,0,0" Width="100" FontFamily="Segoe UI Black" FontSize="14"  VerticalAlignment="Top"/>
         <Label Content="Cage Info" HorizontalAlignment="Left" Margin="37,0,0,0" FontFamily="Segoe UI Black" FontSize="20" VerticalAlignment="Top" Foreground="#FFF5F1F1"/>
-        <Label Content="SerialNumber" HorizontalAlignment="Left" FontFamily="Segoe UI Black" Margin="36,45,0,0" VerticalAlignment="Top"/>
-        <Label Content="Width" HorizontalAlignment="Left" FontFamily="Segoe UI Black" Margin="36,81,0,0" VerticalAlignment="Top"/>
-        <Label Content="Length" HorizontalAlignment="Left" FontFamily="Segoe UI Black" Margin="36,114,0,0" VerticalAlignment="Top"/>
-        <Label Content="Heigth" HorizontalAlignment="Left" FontFamily="Segoe UI Black" Margin="36,150,0,0" VerticalAlignment="Top"/>
-        <Label Content="Metrial" HorizontalAlignment="Left" FontFamily="Segoe UI Black" Margin="37,189,0,0" VerticalAlignment="Top"/>
+        <Label Content="SerialNumber" HorizontalAlignment="Left" FontFamily="Segoe UI Black" Margin="36,45,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Width" HorizontalAlignment="Left" FontFamily="Segoe UI Black" Margin="36,81,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Length" HorizontalAlignment="Left" FontFamily="Segoe UI Black" Margin="36,114,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Heigth" HorizontalAlignment="Left" FontFamily="Segoe UI Black" Margin="36,150,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Metrial" HorizontalAlignment="Left" FontFamily="Segoe UI Black" Margin="37,189,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="List Of Birds" HorizontalAlignment="Left" Margin="37,238,0,0" FontFamily="Segoe UI Black" FontSize="20" VerticalAlignment="Top" Foreground="#FFF9F6F6"/>
-        <ListView x:Name="ListViewBirds"  Margin="24,275,10,10" FontFamily="Segoe UI Black" Grid.Column="0">
-            <ListView.Background>
-                <SolidColorBrush Color="#FFB3C890" Opacity="0.85"/>
-            </ListView.Background>
+        <ListView x:Name="BirdsList" Grid.Column="0" BorderThickness="1" Margin="41,275,76,9" Background="{x:Null}" Foreground="WhiteSmoke" FontFamily="Segoe UI Black" FontSize="14" BorderBrush="{x:Null}">
+            <ListView.Resources>
+                <FontFamily x:Key="MaterialDesignIcons">pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Fonts/#Material Design Icons</FontFamily>
+            </ListView.Resources>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn x:Name="serialNumberText" Width="70">
-                        <GridViewColumnHeader>Serial</GridViewColumnHeader>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="StrainText" Width="70">
-                        <GridViewColumnHeader>Strain</GridViewColumnHeader>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="subspeciesText" Width="70">
-                        <GridViewColumnHeader>subspecies</GridViewColumnHeader>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="HeightText" Width="80">
-                        <GridViewColumnHeader>Date of birth</GridViewColumnHeader>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="GenderText" Width="70">
-                        <GridViewColumnHeader>Gender</GridViewColumnHeader>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="SerialCageText" Width="80">
-                        <GridViewColumnHeader>Serial Cage</GridViewColumnHeader>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="ParentnumberText" Width="80">
-                        <GridViewColumnHeader>Parent number</GridViewColumnHeader>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="MothernumberText" Width="80">
-                        <GridViewColumnHeader>Mother number</GridViewColumnHeader>
-                    </GridViewColumn>
-                    <GridViewColumn x:Name="InfoCage" Width="60">
-                        <GridViewColumnHeader>Info</GridViewColumnHeader>
+                    <GridViewColumn DisplayMemberBinding="{Binding SerialNumber}" Header="Serial Number" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Species}" Header="Species" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding HatchDate}" Header="Hatch Date" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Gender}" Header="Gender" Width="100"/>
+                    <GridViewColumn Header="Select" Width="80">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <!--<Button x:Name="btnInfoBird" Click="btnInfobird_Click">
-                                    
-                                    <Button.Content>
-                                        <Path Width="16" Height="16" Fill="White" Stretch="Uniform" Data="M0,0 L10,0 L10,2 L2,2 L2,16 L0,16 Z M4,4 L14,4 L14,6 L6,6 L6,14 L4,14 Z"/>
-                                    </Button.Content>
-                                </Button>-->
+                                <Button Click="btnShowBird">
+                                    <Grid Width="20" Height="20">
+                                        <TextBlock FontFamily="{StaticResource MaterialDesignIcons}" Text="&#xE5CA;" FontSize="16" Foreground="Green" />
+                                    </Grid>
+                                </Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

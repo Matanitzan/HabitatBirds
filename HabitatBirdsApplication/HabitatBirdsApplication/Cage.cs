@@ -62,8 +62,5 @@ namespace HabitatBirdsApplication
         }
         public float getHeigth() { return this.Heigth; }
 
-
-
-
     }
 }

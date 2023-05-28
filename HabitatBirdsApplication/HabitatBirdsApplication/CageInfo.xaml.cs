@@ -22,17 +22,18 @@ namespace HabitatBirdsApplication
     public partial class CageInfo : System.Windows.Window
     {
         FindCage selected_cage;
-        string path = @"C:\Users\Jonatan\Desktop\CageFile.xlsx";
+        string path = @"C:\Users\Matan\Desktop\Birds.xlsx";
         public CageInfo(FindCage Fcage)
         {
             InitializeComponent();
             this.selected_cage = Fcage;
+            BirdsList.ItemsSource = SearchBirdsInExcel(selected_cage.serial_number_cage(),"F");
             ShowInfo();
         }
         public void ShowInfo()
         {
             WorkBook myWorkBook = WorkBook.Load(path);
-            WorkSheet sheet = myWorkBook.GetWorkSheet("Sheet1");
+            WorkSheet sheet = myWorkBook.GetWorkSheet("Cage");
 
             int i = 2;
             string lastindex = sheet.RowCount.ToString();
@@ -68,9 +69,61 @@ namespace HabitatBirdsApplication
                     }
                     i++;
                 }
+            } 
+            
+        }
+        // Method to search birds in Excel based on serial number
+        private List<Bird> SearchBirdsInExcel(string serialNumber, string col)
+        {
+            List<Bird> matchedBirds = new List<Bird>();
+            try
+            {
+                // Load the Excel workbook
+                WorkBook workBook = WorkBook.Load(path);
+                WorkSheet workSheet = workBook.GetWorkSheet("Birds");
+
+                // Iterate over the rows in the worksheet and check for matching serial numbers
+                for (int i = 2; i <= workSheet.RowCount; i++)
+                {
+                    var cell = workSheet[col + i];
+                    if (cell.Value != null && cell.Value.ToString().Contains(serialNumber))
+                    {
+                        // If the serial number matches, create a Bird object and add it to the list
+                        string serialNumbe = workSheet["A" + i].Value.ToString();
+                        string species = workSheet["B" + i].Value.ToString();
+                        string subspecies = workSheet["C" + i].Value.ToString();
+                        string hatchDate = workSheet["D" + i].Value.ToString();
+                        string gender = workSheet["E" + i].Value.ToString();
+                        string cageNumber = workSheet["F" + i].Value.ToString();
+                        string fatherSerial = workSheet["G" + i].Value.ToString();
+                        string motherSerial = workSheet["H" + i].Value.ToString();
+
+                        Bird bird = new Bird(serialNumbe, species, subspecies, hatchDate, gender, cageNumber, fatherSerial, motherSerial);
+                        matchedBirds.Add(bird);
+                    }
+                }
             }
-            
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error - unable to search in Excel file\n" + ex.Message);
+            }
+
+            return matchedBirds;
+        }
+        private void btnShowBird(object sender, RoutedEventArgs e)
+        {
+            Button selectButton = (Button)sender;
+            Bird selectedBird = (Bird)selectButton.DataContext;
+
+            // Access the selected bird's details and perform any actions you want
+            string serialNumber = selectedBird.SerialNumber;
+            string species = selectedBird.Species;
+            string hatchDate = selectedBird.HatchDate;
+
+            // Display the selected bird's details or perform any other actions
+            ShowBird showBird = new ShowBird(selectedBird);
+            this.Visibility = Visibility.Hidden;
+            showBird.Show();
         }
 
     }

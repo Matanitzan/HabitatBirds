@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jonatan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj": {}
+    "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jonatan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj": {
+    "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jonatan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
+        "projectUniqueName": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
         "projectName": "HabitatBirdsApplication",
-        "projectPath": "C:\\Users\\Jonatan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
-        "packagesPath": "C:\\Users\\Jonatan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jonatan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\obj\\",
+        "projectPath": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
+        "packagesPath": "C:\\Users\\Matan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Jonatan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Matan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,7 +40,6 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
-
             "EPPlus": {
               "target": "Package",
               "version": "[6.2.4, )"
@@ -56,7 +55,6 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
-
             }
           },
           "imports": [

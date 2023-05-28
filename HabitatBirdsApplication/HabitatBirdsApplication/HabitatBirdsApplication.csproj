@@ -10,9 +10,11 @@
   <ItemGroup>
     <None Remove="bird_image.jpg" />
     <None Remove="cover_image.jpeg" />
+    <None Remove="Free Photo _ Baby zitting cisticola bird waiting for food from its mother zitting cisticola bird on branch.jpg" />
     <None Remove="Goldian_Bird.jpg" />
     <None Remove="log in image.jpeg" />
     <None Remove="log in image.jpeg.jfif" />
+    <None Remove="News From The South.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,8 +39,10 @@
   <ItemGroup>
     <Resource Include="bird_image.jpg" />
     <Resource Include="cover_image.jpeg" />
+    <Resource Include="Free Photo _ Baby zitting cisticola bird waiting for food from its mother zitting cisticola bird on branch.jpg" />
     <Resource Include="log in image.jpeg" />
     <Resource Include="log in image.jpeg.jfif" />
+    <Resource Include="News From The South.png" />
   </ItemGroup>
 
 </Project>

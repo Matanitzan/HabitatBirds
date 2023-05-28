@@ -30,7 +30,7 @@ namespace HabitatBirdsApplication
         List<Cage> cages;
         ObservableCollection<Cage> cages_after_sort;
         Cage yourCage;
-        string path = @"C:\Users\Jonatan\Desktop\CageFile.xlsx";
+        string path = @"C:\Users\Matan\Desktop\Birds.xlsx";
         public FindCage()
         {
             InitializeComponent();
@@ -58,7 +58,7 @@ namespace HabitatBirdsApplication
         {
             
             WorkBook myWorkBook = WorkBook.Load(path);
-            WorkSheet sheet = myWorkBook.GetWorkSheet("Sheet1");
+            WorkSheet sheet = myWorkBook.GetWorkSheet("Cage");
             cages_after_sort.Clear();
             cages.Clear();
             //for sireal number
@@ -67,7 +67,6 @@ namespace HabitatBirdsApplication
                 if (checkSerial(FindCageText.Text))
                 {
                     int i = 2;
-                    Trace.WriteLine("test1");
                     string lastindex = sheet.RowCount.ToString();
                     string a = "A" + lastindex;
                     foreach (var cell in sheet["A2:"+a])
@@ -177,6 +176,13 @@ namespace HabitatBirdsApplication
         {
             // Check if the input string contains at least one digit
             return Regex.IsMatch(input, @"^[a-zA-Z]+$");
+        }
+
+        private void backButton(object sender, RoutedEventArgs e)
+        {
+            MainPage mainPage = new MainPage();
+            this.Visibility = Visibility.Hidden;
+            mainPage.Show();
         }
     }
 }
