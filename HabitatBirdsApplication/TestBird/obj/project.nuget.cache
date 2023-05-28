@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "dgSpecHash": "siM9LOu8XbDRYaeH0OCiDlVgDb0vJZmCvVK3XnsIbbtVO11kRIEd9Gkdf6ATuH/nCE+qCTpaMr8OhSqMFaR6Yw==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\TestBird\\TestBird.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Osnat\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
+    "C:\\Users\\Osnat\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",
+    "C:\\Users\\Osnat\\.nuget\\packages\\microsoft.net.test.sdk\\17.5.0\\microsoft.net.test.sdk.17.5.0.nupkg.sha512",
+    "C:\\Users\\Osnat\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Osnat\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.5.0\\microsoft.testplatform.objectmodel.17.5.0.nupkg.sha512",
+    "C:\\Users\\Osnat\\.nuget\\packages\\microsoft.testplatform.testhost\\17.5.0\\microsoft.testplatform.testhost.17.5.0.nupkg.sha512",
+    "C:\\Users\\Osnat\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\Osnat\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Osnat\\.nuget\\packages\\nuget.frameworks\\5.11.0\\nuget.frameworks.5.11.0.nupkg.sha512",
+    "C:\\Users\\Osnat\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
+    "C:\\Users\\Osnat\\.nuget\\packages\\nunit.analyzers\\3.6.1\\nunit.analyzers.3.6.1.nupkg.sha512",
+    "C:\\Users\\Osnat\\.nuget\\packages\\nunit3testadapter\\4.4.2\\nunit3testadapter.4.4.2.nupkg.sha512",
+    "C:\\Users\\Osnat\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project HabitatBirdsApplication is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Project HabitatBirdsApplication supports: net6.0-windows7.0 (.NETCoreApp,Version=v6.0)",
+      "libraryId": "HabitatBirdsApplication",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+﻿<Window x:Class="HabitatBirdsApplication.MainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HabitatBirdsApplication"
+        mc:Ignorable="d"
+        Title="MainPage" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Free Photo _ Baby zitting cisticola bird waiting for food from its mother zitting cisticola bird on branch.jpg"/>
+        </Grid.Background>
+        <Button x:Name="addBird" Content="Add New Bird" HorizontalAlignment="Left" Margin="26,33,0,0" VerticalAlignment="Top" Height="51" Width="143" FontFamily="Segoe UI Black" Foreground="White" FontSize="18" BorderBrush="{x:Null}" Click="addNewBird">
+            <Button.Background>
+                <SolidColorBrush Color="#FFA8A6A1" Opacity="0.7"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Add New Cage" HorizontalAlignment="Left" Margin="26,108,0,0" VerticalAlignment="Top" Height="51" Width="143" Click="Button_Click_1" FontFamily="Segoe UI Black" Foreground="White" FontSize="18" BorderBrush="{x:Null}">
+            <Button.Background>
+                <SolidColorBrush Color="#FFA8A6A1" Opacity="0.7"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Bird Search" HorizontalAlignment="Left" Margin="247,33,0,0" VerticalAlignment="Top" Height="51" Width="143" Foreground="White" FontFamily="Segoe UI Black" FontSize="18" BorderBrush="{x:Null}" Click="birdSearch">
+            <Button.Background>
+                <SolidColorBrush Color="#FFA8A6A1" Opacity="0.7"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Cage Search" HorizontalAlignment="Left" Margin="247,108,0,0" VerticalAlignment="Top" Height="51" Width="143" Foreground="White" FontSize="18" FontFamily="Segoe UI Black" Background="#FFA8A6A1" BorderBrush="{x:Null}"/>
+
+    </Grid>
+</Window>

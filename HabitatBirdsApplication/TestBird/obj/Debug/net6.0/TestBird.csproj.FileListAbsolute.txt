@@ -1,0 +1,5 @@
+C:\Users\Osnat\Desktop\HabitatBirds\HabitatBirdsApplication\TestBird\obj\Debug\net6.0\TestBird.csproj.AssemblyReference.cache
+C:\Users\Osnat\Desktop\HabitatBirds\HabitatBirdsApplication\TestBird\obj\Debug\net6.0\TestBird.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Osnat\Desktop\HabitatBirds\HabitatBirdsApplication\TestBird\obj\Debug\net6.0\TestBird.AssemblyInfoInputs.cache
+C:\Users\Osnat\Desktop\HabitatBirds\HabitatBirdsApplication\TestBird\obj\Debug\net6.0\TestBird.AssemblyInfo.cs
+C:\Users\Osnat\Desktop\HabitatBirds\HabitatBirdsApplication\TestBird\obj\Debug\net6.0\TestBird.csproj.CoreCompileInputs.cache
