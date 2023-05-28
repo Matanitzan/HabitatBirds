@@ -1,0 +1,93 @@
+﻿<Window x:Class="HabitatBirdsApplication.FindCage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mdi="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:HabitatBirdsApplication"
+        
+
+        mc:Ignorable="d"
+        
+        Title="FindCage" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/News From The South.png"/>
+            </Grid.Background>
+            <Label Content="Find Cage:" HorizontalAlignment="Left" Margin="46,27,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="22" Foreground="#FFF3EFEF"/>
+
+            <ComboBox x:Name="OptionTypeToFind" HorizontalAlignment="Left" Margin="48,90,0,0" VerticalAlignment="Top"  Width="120" FontFamily="Segoe UI Black" FontSize="14" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1" Opacity="0.65">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFA8A6A1" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+                <ComboBoxItem>serial number</ComboBoxItem>
+                <ComboBoxItem>By Metiral</ComboBoxItem>
+            </ComboBox>
+            <Label x:Name="insertValueLable" Content="Insert Value:"  HorizontalAlignment="Left" Margin="59,138,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FFF3EFEF"/>
+            <TextBox x:Name="FindCageText" HorizontalAlignment="Left"  Margin="48,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Segoe UI Black" Height="24">
+                <TextBox.Background>
+                    <SolidColorBrush Color="#FFA8A6A1" Opacity="0.65"/>
+                </TextBox.Background>
+            </TextBox>
+            <Button Name="btnSearchCage" Content="Search" HorizontalAlignment="Left" Margin="58,232,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Segoe UI Black" Foreground="#FFF5F1F1" BorderThickness="0,0,0,0" Width="100" Height="35" BorderBrush="#FF707070" Click="btnSearchCage_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="#FFA8A6A1" Opacity="0.65"/>
+                </Button.Background>
+            </Button>
+            <ListView x:Name="ListViewCage"  Margin="206,280,20,10" FontFamily="Segoe UI Black" Grid.Column="0">
+                <ListView.Background>
+                    <SolidColorBrush Color="#FFB3C890" Opacity="0.85"/>
+                </ListView.Background>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn x:Name="serialNumberText" Width="100" DisplayMemberBinding="{Binding serialNumber}">
+                            <GridViewColumnHeader>Serial number</GridViewColumnHeader>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="MaterialText" Width="100" DisplayMemberBinding="{Binding material}">
+                            <GridViewColumnHeader>Material</GridViewColumnHeader>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="WidthText" Width="100" DisplayMemberBinding="{Binding width}">
+                            <GridViewColumnHeader>Width</GridViewColumnHeader>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="HeightText" Width="100" DisplayMemberBinding="{Binding Heigth}">
+                            <GridViewColumnHeader>Height</GridViewColumnHeader>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="LengthText" Width="100" DisplayMemberBinding="{Binding lenght}">
+                            <GridViewColumnHeader>Length</GridViewColumnHeader>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="InfoCage" Width="50">
+                            <GridViewColumnHeader>Info</GridViewColumnHeader>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="btnInfoCage" Click="btnInfoCage_Click">
+                                        <!--<Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Grid>
+                                                    <Ellipse Fill="#FFA8A6A1"/>
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                        <ContentPresenter.Content>
+                                                            <Path Data="{Binding mdi:PackIconMaterial.Design}" Fill="White" Width="16" Height="16" />
+                                                        </ContentPresenter.Content>
+                                                    </ContentPresenter>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Button.Template>-->
+                                        <Button.Content>
+                                            <Path Width="16" Height="16" Fill="White" Stretch="Uniform" Data="M0,0 L10,0 L10,2 L2,2 L2,16 L0,16 Z M4,4 L14,4 L14,6 L6,6 L6,14 L4,14 Z"/>
+                                        </Button.Content>
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>                                                            
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+
+        </Grid>
+    </Grid>
+</Window>

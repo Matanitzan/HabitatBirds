@@ -1,5 +1,6 @@
 {
   "version": 2,
+
   "dgSpecHash": "YXol6i24OLS+TcqF2Sfz/BXh85J1Iheqbi8VMtaJaOlY/qzjxN1F0jDZD4FRBjmLMATYDXGBo74p+iCDOT8GUA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
@@ -56,6 +57,7 @@
     "C:\\Users\\Matan\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\Matan\\.nuget\\packages\\system.threading\\4.0.11\\system.threading.4.0.11.nupkg.sha512",
     "C:\\Users\\Matan\\.nuget\\packages\\system.threading.tasks\\4.0.11\\system.threading.tasks.4.0.11.nupkg.sha512"
+
   ],
   "logs": []
 }

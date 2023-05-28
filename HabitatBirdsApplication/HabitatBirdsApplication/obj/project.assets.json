@@ -15,6 +15,7 @@
           }
         }
       },
+
       "EPPlus/6.2.4": {
         "type": "package",
         "dependencies": {
@@ -58,6 +59,7 @@
           "lib/net6.0/EPPlus.System.Drawing.dll": {}
         }
       },
+
       "IronSoftware.System.Drawing/2023.4.4": {
         "type": "package",
         "dependencies": {
@@ -92,6 +94,7 @@
           }
         }
       },
+
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -335,6 +338,7 @@
           }
         }
       },
+
       "SixLabors.ImageSharp/3.0.0": {
         "type": "package",
         "compile": {
@@ -351,6 +355,7 @@
           "build/SixLabors.ImageSharp.props": {}
         }
       },
+
       "System.Collections/4.0.11": {
         "type": "package",
         "dependencies": {
@@ -526,6 +531,7 @@
           "lib/netstandard1.6/System.Linq.Expressions.dll": {}
         }
       },
+
       "System.Memory/4.5.5": {
         "type": "package",
         "compile": {
@@ -881,6 +887,7 @@
             "related": ".xml"
           }
         }
+
       }
     }
   },
@@ -900,6 +907,7 @@
         "lib/netstandard2.0/BitMiracle.LibTiff.NET.xml"
       ]
     },
+
     "EPPlus/6.2.4": {
       "sha512": "q61q8TeVqBRz+wGP0u/k0MJlpLM5YmkXhwUQxeSfaNBJD+RXvMhfioSq5b0HqTjc01h19Tt6vzHj0x5PfndOZQ==",
       "type": "package",
@@ -967,6 +975,7 @@
         "readme.md"
       ]
     },
+
     "IronSoftware.System.Drawing/2023.4.4": {
       "sha512": "DMHITinLhe4bnzdLI1kJz8cu3muuB691VVj/T7fKNnRPLJr5Exx/J/xSh10fspO7+8PiOiMxwGyEMDtYPBQUlA==",
       "type": "package",
@@ -1010,6 +1019,7 @@
         "readme.txt"
       ]
     },
+
     "Microsoft.CSharp/4.0.1": {
       "sha512": "17h8b5mXa87XYKrrVqdgZ38JefSUqLChUQpXgSnpzsM0nDOhE40FTeNWOJ/YmySGV6tG6T8+hjz6vxbknHJr6A==",
       "type": "package",
@@ -1352,6 +1362,7 @@
         "packageIcon.png"
       ]
     },
+
     "SixLabors.ImageSharp/3.0.0": {
       "sha512": "ETEHRfUAn/rExqdmj2GDayPkW9zr3BruO9S4WF9ULpWmdydewIjoJqinbQc+o4DsM3X0wGZPyJLlj6N3uxV/aw==",
       "type": "package",
@@ -1368,6 +1379,7 @@
         "sixlabors.imagesharp.nuspec"
       ]
     },
+
     "System.Collections/4.0.11": {
       "sha512": "YUJGz6eFKqS0V//mLt25vFGrrCvOnsXjlvFQs+KimpwNxug9x0Pzy4PlFMU3Q2IzqAa9G2L4LsK3+9vCBK7oTg==",
       "type": "package",
@@ -1942,6 +1954,7 @@
         "system.linq.expressions.nuspec"
       ]
     },
+
     "System.Memory/4.5.5": {
       "sha512": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
       "type": "package",
@@ -1964,6 +1977,7 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+
     },
     "System.ObjectModel/4.0.12": {
       "sha512": "tAgJM1xt3ytyMoW4qn4wIqgJYm7L7TShRZG4+Q4Qsi2PCcj96pXN7nRywS9KkB3p/xDUjc2HSwP9SROyPYDYKQ==",
@@ -3128,6 +3142,7 @@
         "system.threading.tasks.4.0.11.nupkg.sha512",
         "system.threading.tasks.nuspec"
       ]
+
     }
   },
   "projectFileDependencyGroups": {
@@ -3136,22 +3151,23 @@
       "IronXL.Excel >= 2023.5.4",
       "Microsoft.CSharp >= 4.0.1",
       "Newtonsoft.Json >= 13.0.3"
+
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Matan\\.nuget\\packages\\": {}
+    "C:\\Users\\Jonatan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
+      "projectUniqueName": "C:\\Users\\Jonatan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
       "projectName": "HabitatBirdsApplication",
-      "projectPath": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
-      "packagesPath": "C:\\Users\\Matan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\obj\\",
+      "projectPath": "C:\\Users\\Jonatan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
+      "packagesPath": "C:\\Users\\Jonatan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jonatan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Matan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jonatan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3177,6 +3193,7 @@
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
         "dependencies": {
+
           "EPPlus": {
             "target": "Package",
             "version": "[6.2.4, )"
@@ -3192,6 +3209,7 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+
           }
         },
         "imports": [
