@@ -28,7 +28,8 @@ namespace HabitatBirdsApplication
     public partial class NewCage : System.Windows.Window
     {
         List<Cage> cages ;
-        string path = "CageFile.xlsx";
+        Cage cage;
+        string path = @"C:\Users\Jonatan\Desktop\CageFile.xlsx";
         public NewCage()
         {
             InitializeComponent();
@@ -62,87 +63,86 @@ namespace HabitatBirdsApplication
         
         private void btnAddCage_Click(object sender, RoutedEventArgs e)
         {
-
-            Cage cage = new Cage(SerialNumberText.Text, MetiralOptions.Text, float.Parse(LenghtCageText.Text, CultureInfo.InvariantCulture.NumberFormat),
-                float.Parse(WidthCageText.Text, CultureInfo.InvariantCulture.NumberFormat), float.Parse(HeightCageText.Text, CultureInfo.InvariantCulture.NumberFormat));
-            cages.Add(cage);
-
-
-            WorkBook myWorkBook = WorkBook.Load(path);
-
-            WorkSheet sheet = myWorkBook.GetWorkSheet("Sheet1");
-
-            string index = "3";
-            sheet['A'+index].Value = cage.getSerial();
-            sheet['B'+index].Value = cage.getMaterial();
-            sheet['C'+index].Value = cage.getLenght();
-            sheet['D'+index].Value = cage.getWidth();
-            sheet['E'+index].Value = cage.getHeigth();
-
             
-            myWorkBook.SaveAs(path);
+            WorkBook myWorkBook = WorkBook.Load(path);
+            WorkSheet sheet = myWorkBook.GetWorkSheet("Sheet1");
+            if (checkSerial(SerialNumberText.Text) && checkNumbers(LenghtCageText.Text) && checkNumbers(WidthCageText.Text) && checkNumbers(HeightCageText.Text))
+            {
+                if (findSerial(SerialNumberText.Text,sheet))
+                {
+                    try
+                    {
+                        cage = new Cage(SerialNumberText.Text, MetiralOptions.Text, float.Parse(LenghtCageText.Text, CultureInfo.InvariantCulture.NumberFormat),
+                   float.Parse(WidthCageText.Text, CultureInfo.InvariantCulture.NumberFormat), float.Parse(HeightCageText.Text, CultureInfo.InvariantCulture.NumberFormat));
+                        cages.Add(cage);
+                        string lastRow = (sheet.RowCount + 1).ToString();
 
-            //Excel.Application app = new Excel.Application();
-            //Workbook MyWorkBook = app.Workbooks.Add(System.Reflection.Missing.Value);
-            //Worksheet MySheets = (Worksheet)MyWorkBook.Worksheets.get_Item(1);
+                        sheet['A' + lastRow].Value = cage.getSerial();
+                        sheet['B' + lastRow].Value = cage.getMaterial();
+                        sheet['C' + lastRow].Value = cage.getLenght();
+                        sheet['D' + lastRow].Value = cage.getWidth();
+                        sheet['E' + lastRow].Value = cage.getHeigth();
+                        Trace.WriteLine("serial:" + cage.getSerial());
+                        myWorkBook.SaveAs(path);
+                        MessageBox.Show("New Cage created!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
 
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Serial number has type allredy exsist");
+                }
 
-            //MySheets.Cells[1, 1] = "Serial";
-            //MySheets.Cells[1, 1].Font.Bold = true;
-
-            //MySheets.Cells[1, 2] = "Metiral";
-            //MySheets.Cells[1, 2].Font.Bold = true;
-
-            //MySheets.Cells[1, 3] = "Length";
-            //MySheets.Cells[1, 3].Font.Bold = true;
-
-            //MySheets.Cells[1, 4] = "Witdh";
-            //MySheets.Cells[1, 4].Font.Bold = true;
-
-            //MySheets.Cells[1, 5] = "Height";
-            //MySheets.Cells[1, 5].Font.Bold = true;
-
-            //int i = 2;
-            //foreach(Cage cage1 in cages)
-            //{
-            //    MySheets.Cells[i, 1] = cage1.getSerial();
-            //    MySheets.Cells[i, 2] = cage1.getMaterial();
-            //    MySheets.Cells[i, 3] = cage1.getLenght();
-            //    MySheets.Cells[i, 4] = cage1.getWidth();
-            //    MySheets.Cells[i, 5] = cage1.getHeigth();
-            //    i++;
-            //}
-
-
-
-            //MyWorkBook.SaveAs2(path, System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value, XlSaveAsAccessMode.xlExclusive,
-            //    System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value);
-            //MessageBoxResult result = MessageBox.Show("do you want to open the file?", "opennig file", MessageBoxButton.YesNo, MessageBoxImage.Information);
-
-            //if (result.Equals(MessageBoxResult.Yes))
-            //{
-            //    openFile();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("your file located in file folder", "located file", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            //}
-            //MyWorkBook.Close(System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value);
-            //app.Quit();
-
-            //GC.WaitForPendingFinalizers();
-            //GC.Collect();
-            //GC.WaitForPendingFinalizers();
-            //GC.Collect();
-
-            //Marshal.ReleaseComObject(MySheets);
-            //Marshal.ReleaseComObject(MyWorkBook);
-            //Marshal.ReleaseComObject(app);
-
-            //this.Close();
-            Trace.WriteLine("serial:" + cage.getSerial());
-
+                
+            }
+            else {
+                MessageBox.Show("Some of your details are wrong please try again");
+            }
+         
         }
+        public bool checkSerial(string serial)
+        {
+            // Check if the input string contains at least one letter
+            bool containsLetters = Regex.IsMatch(serial, @"[a-zA-Z]");
+
+            // Check if the input string contains at least one digit
+            bool containsNumbers = Regex.IsMatch(serial, @"\d");
+
+            // Return true if both conditions are met
+            return containsLetters && containsNumbers;
+        }
+        public bool checkNumbers(string number)
+        {
+            int num;
+            num = int.Parse(number);
+            bool flag = false;
+            if (num < 5 || num > 1000)
+            {
+                flag = false;
+            }
+            else
+            {
+                flag = true;
+            }
+                // Check if the input string contains at least one digit
+            return Regex.IsMatch(number, @"\d") && flag;
+            
+        }
+        public bool findSerial(string serial , WorkSheet sheet)
+        {
+            string lastindex = sheet.RowCount.ToString();
+            string a = "A" + lastindex;
+            foreach (var cell in sheet["A2:"+a])
+            {
+                if (cell.Text == serial)
+                    return false;
+            }
+            return true;
+        }
+        
     }
 }

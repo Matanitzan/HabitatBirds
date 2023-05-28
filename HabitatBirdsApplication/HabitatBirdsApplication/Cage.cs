@@ -8,9 +8,11 @@ namespace HabitatBirdsApplication
 {
     internal class Cage
     {
-        private string serialNumber;
-        private float lenght, width, Heigth;
-        private string material;
+        public string serialNumber { set; get; }
+        public float lenght { set; get; } 
+        public float width { set; get; }
+        public float Heigth { set; get; }
+        public string material { set; get; }
 
 
         public Cage(string serial,string material,float l,float w,float h)

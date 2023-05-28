@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="InfoCagePhoto.jpg" />
     <None Remove="News From The South.png" />
   </ItemGroup>
 
@@ -28,11 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="InfoCagePhoto.jpg" />
     <Resource Include="News From The South.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

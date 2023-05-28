@@ -1,5 +1,5 @@
 ﻿HabitatBirdsApplication
-1.0.0.0
+
 
 winexe
 C#
@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Jonatan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\App.xaml
-21367744156
+42107824199
 
-71469468702
+7753616543
 199104969050
-MainWindow.xaml;NewCage.xaml;
+CageInfo.xaml;FindCage.xaml;MainWindow.xaml;NewCage.xaml;
 
-True
+False
 
