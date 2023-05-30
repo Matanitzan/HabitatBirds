@@ -30,7 +30,8 @@ namespace HabitatBirdsApplication
         List<Cage> cages;
         ObservableCollection<Cage> cages_after_sort;
         Cage yourCage;
-        string path = @"C:\Users\Jonatan\Desktop\CageFile.xlsx";
+        string fileNameXls = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CageFile.xlsx");
+
         public FindCage()
         {
             InitializeComponent();
@@ -56,8 +57,8 @@ namespace HabitatBirdsApplication
         }
         private void btnSearchCage_Click(object sender, RoutedEventArgs e)
         {
-            
-            WorkBook myWorkBook = WorkBook.Load(path);
+
+            WorkBook myWorkBook = WorkBook.Load(fileNameXls);
             WorkSheet sheet = myWorkBook.GetWorkSheet("Sheet1");
             cages_after_sort.Clear();
             cages.Clear();

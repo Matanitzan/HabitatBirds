@@ -18,7 +18,9 @@ using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 using IronXL;
+using System.IO;
 using System.Reflection.Metadata;
+using System.Reflection;
 
 namespace HabitatBirdsApplication
 {
@@ -29,27 +31,16 @@ namespace HabitatBirdsApplication
     {
         List<Cage> cages ;
         Cage cage;
-        string path = @"C:\Users\Jonatan\Desktop\CageFile.xlsx";
+
+        string fileNameXls = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CageFile.xlsx");
+
         public NewCage()
         {
             InitializeComponent();
             cages = new List<Cage>();
-        }
-        private void openFile()
-        {
-            try
-            {
-                var excelApp = new Excel.Application();
-                excelApp.Visible = true;
-                Workbooks books = excelApp.Workbooks;
-                Workbook sheets = books.Open(path);
 
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
         }
+
         public static bool CheckString(string input)
         {
             // Regular expression pattern to match the required format
@@ -64,7 +55,7 @@ namespace HabitatBirdsApplication
         private void btnAddCage_Click(object sender, RoutedEventArgs e)
         {
             
-            WorkBook myWorkBook = WorkBook.Load(path);
+            WorkBook myWorkBook = WorkBook.Load(fileNameXls);
             WorkSheet sheet = myWorkBook.GetWorkSheet("Sheet1");
             if (checkSerial(SerialNumberText.Text) && checkNumbers(LenghtCageText.Text) && checkNumbers(WidthCageText.Text) && checkNumbers(HeightCageText.Text))
             {
@@ -83,7 +74,12 @@ namespace HabitatBirdsApplication
                         sheet['D' + lastRow].Value = cage.getWidth();
                         sheet['E' + lastRow].Value = cage.getHeigth();
                         Trace.WriteLine("serial:" + cage.getSerial());
-                        myWorkBook.SaveAs(path);
+                        SerialNumberText.Text = "";
+                        WidthCageText.Text = "";
+                        LenghtCageText.Text = "";
+                        HeightCageText.Text = "";
+                        MetiralOptions.SelectedItem = null;
+                        myWorkBook.SaveAs(fileNameXls);
                         MessageBox.Show("New Cage created!");
                     }
                     catch (Exception ex)

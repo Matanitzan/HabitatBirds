@@ -32,3 +32,5 @@ C:\Users\Jonatan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplic
 C:\Users\Jonatan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\FindCage.baml
 C:\Users\Jonatan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\CageInfo.g.cs
 C:\Users\Jonatan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\CageInfo.baml
+C:\Users\Jonatan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\bin\Debug\net6.0-windows\CageFile.xlsx
+C:\Users\Jonatan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\HabitatBirdsApplication_Content.g.cs

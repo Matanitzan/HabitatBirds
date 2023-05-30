@@ -22,16 +22,18 @@ namespace HabitatBirdsApplication
     public partial class CageInfo : System.Windows.Window
     {
         FindCage selected_cage;
-        string path = @"C:\Users\Jonatan\Desktop\CageFile.xlsx";
+        string fileNameXls = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CageFile.xlsx");
+
         public CageInfo(FindCage Fcage)
         {
             InitializeComponent();
             this.selected_cage = Fcage;
+
             ShowInfo();
         }
         public void ShowInfo()
         {
-            WorkBook myWorkBook = WorkBook.Load(path);
+            WorkBook myWorkBook = WorkBook.Load(fileNameXls);
             WorkSheet sheet = myWorkBook.GetWorkSheet("Sheet1");
 
             int i = 2;
