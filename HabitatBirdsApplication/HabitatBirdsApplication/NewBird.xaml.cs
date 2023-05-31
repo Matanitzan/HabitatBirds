@@ -19,6 +19,7 @@ using OfficeWindow = Microsoft.Office.Interop.Excel.Window;
 using System.Runtime.InteropServices;
 using IronXL;
 using System.Configuration;
+using System.Diagnostics;
 //using Microsoft.Office.Interop.Excel;
 
 
@@ -49,11 +50,15 @@ namespace HabitatBirdsApplication
         {
             // Initialize gender, species, and subspecies data
             InitializeComponent();
+            WorkBook workBook = WorkBook.Load(fileNameXls);
+            WorkSheet workSheet = workBook.GetWorkSheet("Birds");
             ganders = new string [] { "Male", "Female" };
             species = new string[] { "American Gouldian", "European Gouldian", "Australian Gouldian" };
             subspecies = new string[] { "North America", "Central America", "South America", "Eastern Europe", "Western Europe", "Central Australia", "Coast Cities" };
             // Set the data context to the current instance of the class
             DataContext = this;
+            serialNumberText.Text = workSheet.RowCount.ToString();
+            serialNumberText.IsEnabled = false;
             fatherSerialText.Text = "777";
             motherSerialText.Text = "777";
             fatherSerialText.IsEnabled = false;
@@ -81,7 +86,11 @@ namespace HabitatBirdsApplication
         {
             this.bird = bird;
             InitializeComponent();
+            WorkBook workBook = WorkBook.Load(fileNameXls);
+            WorkSheet workSheet = workBook.GetWorkSheet("Birds");
             ganders = new string[] { "Male", "Female" };
+            species = new string[] { "American Gouldian", "European Gouldian", "Australian Gouldian" };
+            subspecies = new string[] { "North America", "Central America", "South America", "Eastern Europe", "Western Europe", "Central Australia", "Coast Cities" };
             // Set the data context to the current instance of the class
             DataContext = this;
             this.cageNumberText.Text = this.bird.CageNumber;
@@ -89,7 +98,8 @@ namespace HabitatBirdsApplication
             this.subsprciesText.SelectedItem = this.bird.Subspecies;
             genderText.SelectedItem = null;
             hatchDateText.Text = "";
-            serialNumberText.Text = "";
+            serialNumberText.Text = workSheet.RowCount.ToString();
+            serialNumberText.IsEnabled = false;
             if (bird.Gender=="Male")
             {
                 fatherSerialText.Text = this.bird.SerialNumber;
@@ -262,6 +272,18 @@ namespace HabitatBirdsApplication
             gender = select.SelectedItem as string;
         }
 
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DatePicker datePicker = (DatePicker)sender;
+            DateTime selectedDate = datePicker.SelectedDate ?? DateTime.MinValue;
+
+            // Check if the selected date is in the future
+            if (selectedDate > DateTime.Now.Date)
+            {
+                // Set the selected date to the current date
+                datePicker.SelectedDate = DateTime.Now.Date;
+            }
+        }
         // Method to open the Excel file and save the bird information
         private void openFile(string serialNumber, string hatchDate, string cageNumber, string fatherSerial, string motherSerial, string selectSpecies, string selectSubspecies, string gender)
         {

@@ -24,6 +24,7 @@ namespace HabitatBirdsApplication
         FindCage selected_cage;
         //string path = @"C:\Users\Matan\Desktop\Birds.xlsx";
         string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Birds.xlsx");
+        int index;
 
         Cage yourCage;
         public CageInfo(FindCage Fcage, Cage yourCage)
@@ -53,12 +54,13 @@ namespace HabitatBirdsApplication
                         LengthName.Content = sheet["C" + i].ToString();
                         HeigthName.Content = sheet["E" + i].ToString();
                         WidthName.Content = sheet["D" + i].ToString();
+                        index = i;
                         break;
                     }
                     i++;
                 }
             }
-            if(selected_cage.OptionTypeToFind.Text == "By Metiral")
+            if(selected_cage.OptionTypeToFind.Text == "By material")
             {
                 foreach (var cell in sheet["A2:" + a])
                 {
@@ -69,6 +71,7 @@ namespace HabitatBirdsApplication
                         LengthName.Content = sheet["C" + i].ToString();
                         HeigthName.Content = sheet["E" + i].ToString();
                         WidthName.Content = sheet["D" + i].ToString();
+                        index = i;
                         break;
                     }
                     i++;
@@ -132,9 +135,17 @@ namespace HabitatBirdsApplication
 
         private void btnEditCage(object sender, RoutedEventArgs e)
         {
-            NewCage editCage = new NewCage(yourCage);
+            NewCage editCage = new NewCage(yourCage,index);
             this.Visibility = Visibility.Hidden;
             editCage.Show();
+
+        }
+
+        private void backButton(object sender, RoutedEventArgs e)
+        {
+            MainPage mainPage = new MainPage();
+            this.Visibility = Visibility.Hidden;
+            mainPage.Show();
         }
     }
 }

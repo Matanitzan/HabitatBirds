@@ -53,7 +53,7 @@ namespace HabitatBirdsApplication
         }
 
         // Method to search birds in Excel based on serial number
-        private List<Bird> SearchBirdsInExcel(string serialNumber, string col)
+        private List<Bird> SearchBirdsInExcel(string findCell, string col)
         {
             List<Bird> matchedBirds = new List<Bird>();
 
@@ -67,7 +67,7 @@ namespace HabitatBirdsApplication
                 for (int i = 2; i <= workSheet.RowCount; i++)
                 {
                     var cell = workSheet[col + i];
-                    if (cell.Value != null && cell.Value.ToString().Contains(serialNumber))
+                    if (cell.Value != null && cell.Value.ToString()== findCell)
                     {
                         // If the serial number matches, create a Bird object and add it to the list
                         string serialNumbe = workSheet["A" + i].Value.ToString();

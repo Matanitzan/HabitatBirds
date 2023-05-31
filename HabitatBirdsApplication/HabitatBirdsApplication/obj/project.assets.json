@@ -3139,19 +3139,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Matan\\.nuget\\packages\\": {}
+    "C:\\Users\\Osnat\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
+      "projectUniqueName": "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
       "projectName": "HabitatBirdsApplication",
-      "projectPath": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
-      "packagesPath": "C:\\Users\\Matan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Matan\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\obj\\",
+      "projectPath": "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\HabitatBirdsApplication.csproj",
+      "packagesPath": "C:\\Users\\Osnat\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Osnat\\Desktop\\HabitatBirds\\HabitatBirdsApplication\\HabitatBirdsApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Matan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Osnat\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

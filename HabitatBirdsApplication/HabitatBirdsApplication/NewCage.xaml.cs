@@ -30,28 +30,34 @@ namespace HabitatBirdsApplication
     {
         public string[] metiral { get; set; }
         List<Cage> cages ;
-        Cage cage;
+        Cage cage, cageToEdit;
         string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Birds.xlsx");
         //string path = @"C:\Users\Matan\Desktop\Birds.xlsx";
         public string matirel_choose;
+        public int indexCage;
         public NewCage()
         {
             metiral = new string[] { "Wood", "Iron", "Plastic" };
             InitializeComponent();
+            WorkBook myWorkBook = WorkBook.Load(path);
+            WorkSheet sheet = myWorkBook.GetWorkSheet("Cage");
             DataContext = this;
+            SerialNumberText.Text = "A"+sheet.RowCount.ToString();
+            SerialNumberText.IsEnabled = false;
             cages = new List<Cage>();
         }
-        public NewCage(Cage cageToEdit)
+        public NewCage(Cage cageToEdit, int index)
         {
             metiral = new string[] { "Wood", "Iron","Plastic" };
-            this.cage = cageToEdit;
+            this.cageToEdit = cageToEdit;
+            indexCage = index;
             InitializeComponent();
             DataContext = this;
-            SerialNumberText.Text = cage.serialNumber;
-            WidthCageText.Text = cage.width.ToString();
-            HeightCageText.Text = cage.Heigth.ToString();
-            LenghtCageText.Text = cage.lenght.ToString();
-            MetiralOptions.SelectedItem = cage.material;
+            SerialNumberText.Text = cageToEdit.serialNumber;
+            WidthCageText.Text = cageToEdit.width.ToString();
+            HeightCageText.Text = cageToEdit.Heigth.ToString();
+            LenghtCageText.Text = cageToEdit.lenght.ToString();
+            MetiralOptions.SelectedItem = cageToEdit.material;
             SerialNumberText.IsEnabled = false;
             cages = new List<Cage>();
         }
@@ -88,14 +94,24 @@ namespace HabitatBirdsApplication
             WorkSheet sheet = myWorkBook.GetWorkSheet("Cage");
             if (checkSerial(SerialNumberText.Text) && checkNumbers(LenghtCageText.Text) && checkNumbers(WidthCageText.Text) && checkNumbers(HeightCageText.Text))
             {
-                if (findSerial(SerialNumberText.Text,sheet))
+                if ((cageToEdit == null && findSerial(SerialNumberText.Text,sheet)) || cageToEdit!=null)
                 {
                     try
                     {
                         cage = new Cage(SerialNumberText.Text, MetiralOptions.Text, float.Parse(LenghtCageText.Text, CultureInfo.InvariantCulture.NumberFormat),
                    float.Parse(WidthCageText.Text, CultureInfo.InvariantCulture.NumberFormat), float.Parse(HeightCageText.Text, CultureInfo.InvariantCulture.NumberFormat));
                         cages.Add(cage);
-                        string lastRow = (sheet.RowCount + 1).ToString();
+                        string lastRow,message;
+                        if (cageToEdit != null)
+                        {
+                            lastRow = indexCage.ToString();
+                            message = "The cage has been successfully updated";
+                        }
+                        else
+                        {
+                            lastRow = (sheet.RowCount + 1).ToString();
+                            message = "New Cage created!";
+                        }
 
                         sheet['A' + lastRow].Value = cage.getSerial();
                         sheet['B' + lastRow].Value = cage.getMaterial();
@@ -108,7 +124,7 @@ namespace HabitatBirdsApplication
                         LenghtCageText.Text = "";
                         MetiralOptions.SelectedItem = null;
                         myWorkBook.SaveAs(path);
-                        MessageBox.Show("New Cage created!");
+                        MessageBox.Show(message);
                     }
                     catch (Exception ex)
                     {

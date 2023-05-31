@@ -11,7 +11,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="/News From The South.png"/>
         </Grid.Background>
-
         <Label x:Name="SerialNumberName" Content="" HorizontalAlignment="Left" Margin="132,45,0,0" Width="100" FontFamily="Segoe UI Black" FontSize="14"  VerticalAlignment="Top"/>
         <Label x:Name="WidthName" Content="" HorizontalAlignment="Left" Margin="132,79,0,0" Width="100" FontFamily="Segoe UI Black" FontSize="14"  VerticalAlignment="Top"/>
         <Label x:Name="LengthName" Content="" HorizontalAlignment="Left" Margin="132,113,0,0" Width="100" FontFamily="Segoe UI Black" FontSize="14"  VerticalAlignment="Top"/>
@@ -38,9 +37,9 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Click="btnShowBird">
-                                    <Grid Width="20" Height="20">
-                                        <TextBlock FontFamily="{StaticResource MaterialDesignIcons}" Text="&#xE5CA;" FontSize="16" Foreground="Green" />
-                                    </Grid>
+                                    <Button.Content>
+                                        <Path Width="16" Height="16" Fill="White" Stretch="Uniform" Data="M0,0 L10,0 L10,2 L2,2 L2,16 L0,16 Z M4,4 L14,4 L14,6 L6,6 L6,14 L4,14 Z"/>
+                                    </Button.Content>
                                 </Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -53,5 +52,11 @@
                 <SolidColorBrush Color="#FFA8A6A1" Opacity="0.7"/>
             </Button.Background>
         </Button>
+        <Button x:Name="backHomePage" Content="Back" HorizontalAlignment="Left" Margin="624,350,0,0" VerticalAlignment="Top" Click="backButton" Width="60" Height="31" FontFamily="Segoe UI Black" Foreground="White" FontSize="14" RenderTransformOrigin="0.639,0.048">
+            <Button.Background>
+                <SolidColorBrush Color="#FFA8A6A1" Opacity="0.7"/>
+            </Button.Background>
+        </Button>
+
     </Grid>
 </Window>

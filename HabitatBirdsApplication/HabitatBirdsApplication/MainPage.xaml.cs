@@ -68,5 +68,14 @@ namespace HabitatBirdsApplication
             this.Visibility = Visibility.Hidden;
             newCage.Show();
         }
+
+
+
+        private void logOutClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            this.Visibility = Visibility.Hidden;
+            mainWindow.Show();
+        }
     }
 }

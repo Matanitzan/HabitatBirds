@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ComboBoxParents" Height="250" Width="350">
     <Grid>
-        <ComboBox x:Name="parentsOption" HorizontalAlignment="Left" Margin="35,37,0,128" Width="236" ItemsSource ="{Binding parents}" IsEditable="True" FontFamily="Segoe UI Black" FontSize="14">
+        <ComboBox x:Name="parentsOption" HorizontalAlignment="Left" Margin="35,37,0,141" Width="236" ItemsSource ="{Binding parents}" IsEditable="True" FontFamily="Segoe UI Black" FontSize="14">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFF0F0F0"/>

@@ -17,15 +17,14 @@
             </Grid.Background>
             <Label Content="Find Cage" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="22" Foreground="#FFF3EFEF"/>
 
-            <ComboBox x:Name="OptionTypeToFind" HorizontalAlignment="Left" Margin="48,90,0,0" VerticalAlignment="Top"  Width="150" FontFamily="Segoe UI Black" FontSize="14" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBox x:Name="OptionTypeToFind" HorizontalAlignment="Left" Margin="48,90,0,0" VerticalAlignment="Top"  Width="150" FontFamily="Segoe UI Black" FontSize="14" ItemsSource="{Binding option}" SelectionChanged="ComboBox_SelectionChanged">
                 <ComboBox.Background>
                     <LinearGradientBrush EndPoint="0,1" Opacity="0.65">
                         <GradientStop Color="#FFF0F0F0"/>
                         <GradientStop Color="#FFA8A6A1" Offset="1"/>
                     </LinearGradientBrush>
                 </ComboBox.Background>
-                <ComboBoxItem>serial number</ComboBoxItem>
-                <ComboBoxItem>By Metiral</ComboBoxItem>
+                
             </ComboBox>
             <Label x:Name="insertValueLable" Content="Insert Value:"  HorizontalAlignment="Left" Margin="65,137,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="16" Foreground="#FFF3EFEF" Width="131"/>
             <TextBox x:Name="FindCageText" HorizontalAlignment="Left"  Margin="48,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="154" FontFamily="Segoe UI Black" Height="24">
@@ -92,6 +91,7 @@
                 </Button.Background>
             </Button>
             <Label x:Name="insertValueLable_Copy" Content="Choose option:"  HorizontalAlignment="Left" Margin="51,55,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="16" Foreground="#FFF3EFEF"/>
+            <Label x:Name="matirel_Options" Content="Options: Wood/Plastic/Iron" HorizontalAlignment="Left" Margin="218,168,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="16" Foreground="#FFF3EFEF" Visibility="Hidden"/>
 
         </Grid>
     </Grid>

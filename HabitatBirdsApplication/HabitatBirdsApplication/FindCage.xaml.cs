@@ -29,21 +29,31 @@ namespace HabitatBirdsApplication
         List<Cage> cages;
         ObservableCollection<Cage> cages_after_sort;
         Cage yourCage { set; get; }
+        string choose;
         //string path = @"C:\Users\Matan\Desktop\Birds.xlsx";
         string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Birds.xlsx");
-
+        public string [] option { get; set; }
         public FindCage()
         {
             InitializeComponent();
             cages = new List<Cage>();
             cages_after_sort = new ObservableCollection<Cage>();
+            option = new string[] { "By material", "serial number" };
+            DataContext = this;
+
             ListViewCage.Visibility = Visibility.Hidden;
+            
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
-            
+            var select = sender as ComboBox;
+            choose = select.SelectedItem as string;
+            if (choose== "By material")
+            {
+                Trace.WriteLine(choose);
+                matirel_Options.Visibility = Visibility.Visible;
+            }
         }
         public string serial_number_cage()
         {
@@ -107,12 +117,23 @@ namespace HabitatBirdsApplication
                 {
                     cages_after_sort.Add(c);
                 }
-                ListViewCage.Visibility = Visibility.Visible;
-                ListViewCage.ItemsSource = cages_after_sort;
+                if (cages.Count == 1)
+                {
+                    yourCage = cages[0];
+                    CageInfo card_Cage = new CageInfo(this, yourCage);
+                    this.Visibility = Visibility.Hidden;
+                    card_Cage.Show();
+                }
+                else
+                {
+                    ListViewCage.Visibility = Visibility.Visible;
+                    ListViewCage.ItemsSource = cages_after_sort;
+                }
             }
             //for metiral
-            if(OptionTypeToFind.Text== "By Metiral")
+            if(OptionTypeToFind.Text== "By material")
             {
+                
                 if (checkLetters(FindCageText.Text))
                 {
                     if(FindCageText.Text == "Iron" || FindCageText.Text == "Wood" || FindCageText.Text == "Plastic")
@@ -145,7 +166,7 @@ namespace HabitatBirdsApplication
                     }
                     else
                     {
-                        MessageBox.Show("We didnet found Your Metiral, try again");
+                        MessageBox.Show("We didnet found Your material, try again");
                     }
                      
                 }
@@ -157,8 +178,18 @@ namespace HabitatBirdsApplication
                 {
                     cages_after_sort.Add(c);
                 }
-                ListViewCage.Visibility = Visibility.Visible;
-                ListViewCage.ItemsSource = cages_after_sort;
+                if(cages.Count == 1)
+                {
+                    yourCage = cages[0];
+                    CageInfo card_Cage = new CageInfo(this, yourCage);
+                    this.Visibility = Visibility.Hidden;
+                    card_Cage.Show();
+                }
+                else
+                {
+                    ListViewCage.Visibility = Visibility.Visible;
+                    ListViewCage.ItemsSource = cages_after_sort;
+                }
             }
            
          

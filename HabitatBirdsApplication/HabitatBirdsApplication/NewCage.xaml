@@ -18,22 +18,22 @@
         <Label Content="Material" HorizontalAlignment="Left" Margin="26,280,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="18" Foreground="#FFF3EFEF"/>
         <TextBox x:Name="SerialNumberText" HorizontalAlignment="Left" Margin="190,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" FontFamily="Segoe UI Black" Height="24">
             <TextBox.Background>
-                <SolidColorBrush Color="#FFE9E9E9" Opacity="1"/>
+                <SolidColorBrush  Color="White" Opacity="1"/>
             </TextBox.Background>
         </TextBox>
         <TextBox x:Name="WidthCageText" HorizontalAlignment="Left" Margin="192,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" FontFamily="Segoe UI Black" Height="24">
             <TextBox.Background>
-                <SolidColorBrush Color="#FFE9E9E9" Opacity="1"/>
+                <SolidColorBrush  Color="White" Opacity="1"/>
             </TextBox.Background>
         </TextBox>
         <TextBox x:Name="LenghtCageText" HorizontalAlignment="Left" Margin="190,166,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" FontFamily="Segoe UI Black" Height="24">
             <TextBox.Background>
-                <SolidColorBrush Color="#FFE9E9E9" Opacity="1"/>
+                <SolidColorBrush  Color="White" Opacity="1"/>
             </TextBox.Background>
         </TextBox>
         <TextBox x:Name="HeightCageText" HorizontalAlignment="Left" Margin="190,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" FontFamily="Segoe UI Black" Height="24">
             <TextBox.Background>
-                <SolidColorBrush Color="#FFEAEAEA" Opacity="1"/>
+                <SolidColorBrush  Color="White" Opacity="1"/>
             </TextBox.Background>
         </TextBox>
         <ComboBox x:Name="MetiralOptions" HorizontalAlignment="Left" Margin="188,285,0,0" VerticalAlignment="Top" Width="185" Height ="24" ItemsSource ="{Binding metiral}" IsEditable="True" SelectionChanged="MetiralOptions_SelectionChanged" FontFamily="Segoe UI Black" FontSize="14">

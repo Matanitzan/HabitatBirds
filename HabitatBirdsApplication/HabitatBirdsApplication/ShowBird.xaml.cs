@@ -100,7 +100,11 @@ namespace HabitatBirdsApplication
             }
             else
             {
-                workSheet.Rows[index].RemoveRow();
+                Trace.WriteLine("index = " + index);
+                workSheet.GetRow(index-1).RemoveRow();
+
+                //workSheet.Rows[index].RemoveRow();
+
                 // Save the changes to the Excel file
                 workBook.SaveAs(fileNameXls);
                 NewBird editBird = new NewBird(bird);

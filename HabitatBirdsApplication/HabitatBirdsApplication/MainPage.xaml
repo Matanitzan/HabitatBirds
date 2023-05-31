@@ -27,6 +27,7 @@
             </Button.Background>
         </Button>
         <Button Content="Cage Search" HorizontalAlignment="Left" Margin="247,108,0,0" VerticalAlignment="Top" Height="51" Width="143" Foreground="White" FontSize="18" FontFamily="Segoe UI Black" Background="#FFA8A6A1" BorderBrush="{x:Null}" Click="cageSearch"/>
+        <Button Content="Log Out" HorizontalAlignment="Left" Margin="623,322,0,0" VerticalAlignment="Top" Height="51" Width="143" Foreground="White" FontSize="18" FontFamily="Segoe UI Black" Background="#FFA8A6A1" BorderBrush="{x:Null}" Click="logOutClick" />
 
     </Grid>
 </Window>

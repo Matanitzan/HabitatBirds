@@ -38,9 +38,7 @@
 
   <ItemGroup>
     <Resource Include="bird_image.jpg" />
-    <Resource Include="cover_image.jpeg" />
     <Resource Include="Free Photo _ Baby zitting cisticola bird waiting for food from its mother zitting cisticola bird on branch.jpg" />
-    <Resource Include="log in image.jpeg" />
     <Resource Include="log in image.jpeg.jfif" />
     <Resource Include="News From The South.png" />
   </ItemGroup>

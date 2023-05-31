@@ -47,7 +47,21 @@
                 <SolidColorBrush Color="White" Opacity="1"/>
             </TextBox.Background>
         </TextBox>
-        <DatePicker x:Name="hatchDateText" HorizontalAlignment="Left" Margin="170,180,0,0" VerticalAlignment="Top" Height="28" Width="172" BorderBrush="{x:Null}" Background="White" Foreground="#FF333333" RenderTransformOrigin="1.477,0.394" Cursor="Cross" FontFamily="Segoe UI Black" FontSize="14"/>
+        <DatePicker x:Name="hatchDateText"
+            HorizontalAlignment="Left"
+            Margin="170,180,0,0"
+            VerticalAlignment="Top"
+            Height="28"
+            Width="172"
+            BorderBrush="{x:Null}"
+            Background="White"
+            Foreground="#FF333333"
+            RenderTransformOrigin="1.477,0.394"
+            Cursor="Cross"
+            FontFamily="Segoe UI Black"
+            FontSize="14"
+            SelectedDateChanged="DatePicker_SelectedDateChanged"
+            />
         <ComboBox x:Name="genderText" HorizontalAlignment="Left" Margin="170,230,0,0" VerticalAlignment="Top" Width="172" Height ="26" ItemsSource ="{Binding ganders}" IsEditable="True" SelectionChanged="genderText_SelectionChanged" FontFamily="Segoe UI Black" FontSize="14">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
