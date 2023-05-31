@@ -1,18 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using IronXL;
 namespace HabitatBirdsApplication
 {
@@ -27,6 +16,13 @@ namespace HabitatBirdsApplication
         int index;
 
         Cage yourCage;
+
+        /// <summary>
+        /// Initializes a new instance of the CageInfo class.
+        /// </summary>
+        /// <param name="Fcage">The FindCage object representing the selected cage.</param>
+        /// <param name="yourCage">The Cage object representing the user's cage.</param>
+        /// 
         public CageInfo(FindCage Fcage, Cage yourCage)
         {
             this.selected_cage = Fcage;
@@ -35,6 +31,10 @@ namespace HabitatBirdsApplication
             BirdsList.ItemsSource = SearchBirdsInExcel(selected_cage.serial_number_cage(), "F");
             ShowInfo();
         }
+
+        /// <summary>
+        /// Displays the information about the selected cage.
+        /// </summary>
         public void ShowInfo()
         {
             WorkBook myWorkBook = WorkBook.Load(path);
@@ -77,9 +77,13 @@ namespace HabitatBirdsApplication
                     i++;
                 }
             } 
-            
         }
-        // Method to search birds in Excel based on serial number
+        /// <summary>
+        /// Searches for birds in the Excel file based on a serial number and column.
+        /// </summary>
+        /// <param name="serialNumber">The serial number to search for.</param>
+        /// <param name="col">The column to search in.</param>
+        /// <returns>A list of matched Bird objects.</returns>
         private List<Bird> SearchBirdsInExcel(string serialNumber, string col)
         {
             List<Bird> matchedBirds = new List<Bird>();
@@ -117,6 +121,13 @@ namespace HabitatBirdsApplication
 
             return matchedBirds;
         }
+
+        /// <summary>
+        /// Handles the event when the "Show Bird" button is clicked.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">The event arguments.</param>
+        /// 
         private void btnShowBird(object sender, RoutedEventArgs e)
         {
             Button selectButton = (Button)sender;
@@ -133,6 +144,11 @@ namespace HabitatBirdsApplication
             showBird.Show();
         }
 
+        /// <summary>
+        /// Handles the event when the "Edit Cage" button is clicked.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void btnEditCage(object sender, RoutedEventArgs e)
         {
             NewCage editCage = new NewCage(yourCage,index);
@@ -140,7 +156,11 @@ namespace HabitatBirdsApplication
             editCage.Show();
 
         }
-
+        /// <summary>
+        /// Handles the event when the "Back" button is clicked.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void backButton(object sender, RoutedEventArgs e)
         {
             MainPage mainPage = new MainPage();

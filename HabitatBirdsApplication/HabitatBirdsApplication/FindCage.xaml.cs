@@ -1,28 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Diagnostics;
-using System.IO;
 using IronXL;
 using System.Text.RegularExpressions;
-using System.Collections;
 using System.Globalization;
 using System.Collections.ObjectModel;
 
 namespace HabitatBirdsApplication
 {
     /// <summary>
-    /// Interaction logic for FindCage.xaml
+    /// Initializes a new instance of the FindCage class.
     /// </summary>
     public partial class FindCage : Window
     {
@@ -45,6 +35,11 @@ namespace HabitatBirdsApplication
             
         }
 
+        /// <summary>
+        /// Handles the event when the selection in the ComboBox changes.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var select = sender as ComboBox;
@@ -55,10 +50,21 @@ namespace HabitatBirdsApplication
                 matirel_Options.Visibility = Visibility.Visible;
             }
         }
+
+        /// <summary>
+        /// Retrieves the serial number of the selected cage.
+        /// </summary>
+        /// <returns>The serial number of the cage as a string.</returns>
         public string serial_number_cage()
         {
             return yourCage.serialNumber.ToString();
         }
+
+        /// <summary>
+        /// Handles the event when the "Info" button for a cage is clicked.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void btnInfoCage_Click(object sender, RoutedEventArgs e){
             Button btnInfoCage = (Button)sender;
             yourCage = (Cage)btnInfoCage.DataContext;
@@ -66,6 +72,12 @@ namespace HabitatBirdsApplication
             this.Visibility = Visibility.Hidden;
             card_Cage.Show();
         }
+
+        /// <summary>
+        /// Handles the event when the "Search" button is clicked.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void btnSearchCage_Click(object sender, RoutedEventArgs e)
         {
             

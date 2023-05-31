@@ -1,25 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 //using Window = System.Windows.Window;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Diagnostics;
-using System.Text.RegularExpressions;
-using Excel = Microsoft.Office.Interop.Excel;
-using OfficeWindow = Microsoft.Office.Interop.Excel.Window;
-using System.Runtime.InteropServices;
 using IronXL;
-using System.Configuration;
-using System.Diagnostics;
 
 
 namespace HabitatBirdsApplication
@@ -31,7 +14,9 @@ namespace HabitatBirdsApplication
     {
         private Bird bird;
         string fileNameXls = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Birds.xlsx");
-        //string fileNameXls = @"C:\Users\Matan\Desktop\Birds.xlsx";
+
+        // Constructor for ShowBird class
+        // Initializes the window and sets the bird instance variable
         public ShowBird(Bird bird)
         {
             this.bird = bird;
@@ -41,8 +26,10 @@ namespace HabitatBirdsApplication
         }
         private void FillTextBoxes()
         {
+            // Fills the text boxes in the window with bird details
             if (bird != null)
             {
+                // Populate the text boxes with bird information
                 SerialNumberTextBox.Text = bird.SerialNumber;
                 SpeciesTextBox.Text = bird.Species;
                 SubspeciesTextBox.Text = bird.Subspecies;
@@ -54,12 +41,14 @@ namespace HabitatBirdsApplication
             }
         }
 
+        // Event handler for adding chicks button click
         private void AddChicksButton_Click(object sender, RoutedEventArgs e)
         {
             string selectSecondParent;
             string[] parents = detailsSerialCages();
             if (parents.Length<=0)
             {
+                // If no suitable parents are found, show a message box and return
                 MessageBox.Show("There are no birds suitable for mating (of a different species or of the same breed) in the cage, check that you have not confused who the chick belongs to.");
                 return;
             }
@@ -67,6 +56,7 @@ namespace HabitatBirdsApplication
 
             if(comboBoxParents.ShowDialog() == true)
             {
+                // If a parent is selected, update the Excel workbook and open a new bird window
                 selectSecondParent = comboBoxParents.selectParents;
                 if (selectSecondParent != null)
                 {
@@ -87,12 +77,15 @@ namespace HabitatBirdsApplication
 
         }
 
+        // Event handler for editing bird button click
+        // Load the Excel workbook
         private void btneditBird(object sender, RoutedEventArgs e)
         {
             // Load the Excel workbook
             WorkBook workBook = WorkBook.Load(fileNameXls);
             WorkSheet workSheet = workBook.GetWorkSheet("Birds");
             int index = searchIndexData(bird.SerialNumber);
+            // If the bird already has chicks, show a message box and return
             if (workSheet["J"+index].Value.ToString()=="TRUE")
             {
                 MessageBox.Show("It is not possible to change the details of the bird, it already has chicks in the cage");
@@ -100,7 +93,7 @@ namespace HabitatBirdsApplication
             }
             else
             {
-                Trace.WriteLine("index = " + index);
+                // Remove the row of the current bird from the workbook and open a new bird window for editing
                 workSheet.GetRow(index-1).RemoveRow();
 
                 //workSheet.Rows[index].RemoveRow();
@@ -113,6 +106,8 @@ namespace HabitatBirdsApplication
             }
             
         }
+
+        // Searches for the index of the bird's serial number in the Excel workbook
         private int searchIndexData(string serialNumber)
         {
             try
@@ -140,11 +135,8 @@ namespace HabitatBirdsApplication
         }
         private string [] detailsSerialCages()
         {
-            // Create a pop-up form
+            // Retrieves a list of serial numbers of suitable birds for mating
 
-
-            // Create a combo box
-            
             List<string> itemList = new List<string>();
             try
             {
@@ -169,6 +161,7 @@ namespace HabitatBirdsApplication
             return serials;
         }
 
+        // Event handler for going back button click
         private void btnBack(object sender, RoutedEventArgs e)
         {
             MainPage mainPage = new MainPage();

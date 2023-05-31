@@ -1,23 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Diagnostics;
-using System.Text.RegularExpressions;
-using Excel = Microsoft.Office.Interop.Excel;
-using OfficeWindow = Microsoft.Office.Interop.Excel.Window;
-using System.Runtime.InteropServices;
 using IronXL;
-using System.Configuration;
 
 namespace HabitatBirdsApplication
 {
@@ -31,17 +16,21 @@ namespace HabitatBirdsApplication
 
         public object ExcelPackage { get; private set; }
 
+        // Default constructor for SignUpWindow
         public SignUpWindow()
         {
             InitializeComponent();
             this.mainWindow = new MainWindow();
         }
+
+        // Constructor for SignUpWindow with a reference to the main window
         public SignUpWindow(MainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
         }
 
+        // Saves user sign-up data to an Excel file
         private void SaveToExcel(string firstName, string lastName, string id, string userName, string password)
         {
             string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Birds.xlsx");
@@ -60,6 +49,8 @@ namespace HabitatBirdsApplication
 
             workbook.SaveAs(filePath);
         }
+
+        // Checks if a username is valid and unique
         private bool IsValidUserName(string userName)
         {
             if (userName.Length < 6 || userName.Length > 8)
@@ -102,6 +93,7 @@ namespace HabitatBirdsApplication
             return true; // Username is valid and unique
         }
 
+        // Checks if a character is a special character
         private bool IsSpecialCharacter(char c)
         {
             string specialCharacters = "!@#$%^&*()";
@@ -109,6 +101,7 @@ namespace HabitatBirdsApplication
             return specialCharacters.Contains(c);
         }
 
+        // Checks if a password is valid
         private bool IsValidPassword(string password)
         {
             if (password.Length < 8 || password.Length > 10)
@@ -144,7 +137,7 @@ namespace HabitatBirdsApplication
             return true;
         }
 
-
+        // Checks if an ID is valid
         private bool IsValidID(string id)
         {
             if (id.Length != 9 || !id.All(char.IsDigit))
@@ -155,6 +148,7 @@ namespace HabitatBirdsApplication
             return true;
         }
 
+        // Event handler for the save button click
         private void saveButton(object sender, RoutedEventArgs e)
         {
             string firstName = firstNameText.Text;

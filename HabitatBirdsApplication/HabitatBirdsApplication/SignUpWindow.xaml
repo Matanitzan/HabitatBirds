@@ -66,7 +66,6 @@
                     <SolidColorBrush Color="#FFA8A6A1" Opacity="0.6"/>
                 </Label.Background>
             </Label>
-            <Label Content="Password:One special character, one number and at least one letter, length: 6-8" HorizontalAlignment="Left" Margin="22,267,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.079,2.271" Foreground="#FFB30707" Width="428" Grid.ColumnSpan="2"/>
         </Grid>
     </Grid>
 </Window>

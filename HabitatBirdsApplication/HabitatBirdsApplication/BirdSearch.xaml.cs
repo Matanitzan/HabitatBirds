@@ -1,8 +1,6 @@
 ﻿using IronXL;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -110,6 +108,8 @@ namespace HabitatBirdsApplication
             showBird.Show();
             //MessageBox.Show($"Selected Bird:\nSerial Number: {serialNumber}\nSpecies: {species}\nHatch Date: {hatchDate}");
         }
+
+        // Method to check if a serial is not null and if a serial isDigit
         private Boolean isValidSerial(string serial, string type)
         {
             if (string.IsNullOrEmpty(serial))

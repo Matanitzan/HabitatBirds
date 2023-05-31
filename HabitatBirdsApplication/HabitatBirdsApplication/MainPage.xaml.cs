@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+
 
 namespace HabitatBirdsApplication
 {
@@ -24,16 +13,11 @@ namespace HabitatBirdsApplication
             InitializeComponent();
         }
 
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
-
-        //private void Button_Click_1(object sender, RoutedEventArgs e)
-        //{
-
-        //}
-
+        /// <summary>
+        /// Handles the event when the "Add New Bird" button is clicked.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void addNewBird(object sender, RoutedEventArgs e)
         {
             NewBird newBird = new NewBird();
@@ -41,20 +25,23 @@ namespace HabitatBirdsApplication
             newBird.Show();
         }
 
+        /// <summary>
+        /// Handles the event when the "Bird Search" button is clicked.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void birdSearch(object sender, RoutedEventArgs e)
         {
             BirdSearch birdSearch = new BirdSearch();
             this.Visibility = Visibility.Hidden;
             birdSearch.Show();
-
-
         }
 
-        //private void Button_Click_2(object sender, RoutedEventArgs e)
-        //{
-
-        //}
-
+        /// <summary>
+        /// Handles the event when the "Cage Search" button is clicked.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void cageSearch(object sender, RoutedEventArgs e)
         {
             FindCage findCage = new FindCage();
@@ -62,6 +49,11 @@ namespace HabitatBirdsApplication
             findCage.Show();
         }
 
+        /// <summary>
+        /// Handles the event when the "Add New Cage" button is clicked.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void addNewCge(object sender, RoutedEventArgs e)
         {
             NewCage newCage = new NewCage();
@@ -69,8 +61,11 @@ namespace HabitatBirdsApplication
             newCage.Show();
         }
 
-
-
+        /// <summary>
+        /// Handles the event when the "Log Out" button is clicked.
+        /// </summary>
+        /// <param name="sender">The object that triggered the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void logOutClick(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
