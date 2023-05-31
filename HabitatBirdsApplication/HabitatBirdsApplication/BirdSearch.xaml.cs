@@ -22,7 +22,9 @@ namespace HabitatBirdsApplication
         public string selectedGender;
 
         // Path to the Excel file
-        string fileNameXls = @"C:\Users\Matan\Desktop\Birds.xlsx";
+        string fileNameXls = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Birds.xlsx");
+
+        //string fileNameXls = @"C:\Users\Matan\Desktop\Birds.xlsx";
 
         public BirdSearch()
         {
@@ -197,6 +199,12 @@ namespace HabitatBirdsApplication
             if(birds.Count == 0)
             {
                 MessageBox.Show("There are no matching results for your search");
+            }
+            if (birds.Count == 1)
+            {
+                ShowBird showBird = new ShowBird(birds[0]);
+                this.Visibility = Visibility.Hidden;
+                showBird.Show();
             }
             else
             {

@@ -81,5 +81,6 @@
                 <SolidColorBrush Color="#FFA8A6A1" Opacity="0.7"/>
             </Button.Background>
         </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="934,158,0,0" VerticalAlignment="Top" Width="0"/>
     </Grid>
 </Window>

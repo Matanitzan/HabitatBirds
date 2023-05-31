@@ -16,6 +16,7 @@ namespace HabitatBirdsApplication
         public string CageNumber { get; set; }
         public string FatherSerial { get; set; }
         public string MotherSerial { get; set; }
+        public Boolean hasChicks { get; set; }
 
         public Bird(string serialNumber, string species, string subspecies, string hatchDate, string gender, string cageNumber, string fatherSerial, string motherSerial)
         {

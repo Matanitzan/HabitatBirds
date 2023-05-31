@@ -26,11 +26,12 @@ namespace HabitatBirdsApplication
     /// </summary>
     public partial class FindCage : Window
     {
-
         List<Cage> cages;
         ObservableCollection<Cage> cages_after_sort;
-        Cage yourCage;
-        string path = @"C:\Users\Matan\Desktop\Birds.xlsx";
+        Cage yourCage { set; get; }
+        //string path = @"C:\Users\Matan\Desktop\Birds.xlsx";
+        string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Birds.xlsx");
+
         public FindCage()
         {
             InitializeComponent();
@@ -51,7 +52,8 @@ namespace HabitatBirdsApplication
         private void btnInfoCage_Click(object sender, RoutedEventArgs e){
             Button btnInfoCage = (Button)sender;
             yourCage = (Cage)btnInfoCage.DataContext;
-            CageInfo card_Cage = new CageInfo(this);
+            CageInfo card_Cage = new CageInfo(this,yourCage);
+            this.Visibility = Visibility.Hidden;
             card_Cage.Show();
         }
         private void btnSearchCage_Click(object sender, RoutedEventArgs e)

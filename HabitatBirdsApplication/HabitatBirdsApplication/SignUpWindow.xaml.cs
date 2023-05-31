@@ -44,7 +44,8 @@ namespace HabitatBirdsApplication
 
         private void SaveToExcel(string firstName, string lastName, string id, string userName, string password)
         {
-            string filePath = @"C:\Users\Matan\Desktop\Birds.xlsx";
+            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Birds.xlsx");
+            //string filePath = @"C:\Users\Matan\Desktop\Birds.xlsx";
 
             WorkBook workbook = WorkBook.Load(filePath);
             WorkSheet worksheet = workbook.GetWorkSheet("Users");
@@ -85,8 +86,8 @@ namespace HabitatBirdsApplication
             {
                 return false;
             }
-
-            string filePath = @"C:\Users\Matan\Desktop\Birds.xlsx";
+            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Birds.xlsx");
+            //string filePath = @"C:\Users\Matan\Desktop\Birds.xlsx";
             WorkBook workbook = WorkBook.Load(filePath);
             WorkSheet worksheet = workbook.GetWorkSheet("Users");
 

@@ -26,6 +26,7 @@ namespace HabitatBirdsApplication
     /// </summary>
     public partial class MainWindow : System.Windows.Window
     {
+
         SignUpWindow signUpWindow;
         public MainWindow()
         {
@@ -43,7 +44,9 @@ namespace HabitatBirdsApplication
         }
         private void loginButton(object sender, RoutedEventArgs e)
         {
-            string filePath = @"C:\Users\Matan\Desktop\Birds.xlsx";
+            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Birds.xlsx");
+            //string filePath = @"C:\Users\Matan\Desktop\Birds.xlsx";
+
             // Check if the file exists
             if (System.IO.File.Exists(filePath))
             {

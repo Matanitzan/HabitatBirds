@@ -39,7 +39,9 @@ namespace HabitatBirdsApplication
         // Variable to store selected gender
         public string gender;
         // Path to the Excel file
-        string fileNameXls = @"C:\Users\Matan\Desktop\Birds.xlsx";
+        string fileNameXls = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Birds.xlsx");
+        //string fileNameXls = @"C:\Users\Matan\Desktop\Birds.xlsx";
+        private Bird bird;
 
 
 
@@ -54,6 +56,55 @@ namespace HabitatBirdsApplication
             DataContext = this;
             fatherSerialText.Text = "777";
             motherSerialText.Text = "777";
+            fatherSerialText.IsEnabled = false;
+            motherSerialText.IsEnabled = false;
+        }
+        public NewBird(Bird bird)
+        {
+            this.bird = bird;
+            InitializeComponent();
+            ganders = new string[] { "Male", "Female" };
+            species = new string[] { "American Gouldian", "European Gouldian", "Australian Gouldian" };
+            subspecies = new string[] { "North America", "Central America", "South America", "Eastern Europe", "Western Europe", "Central Australia", "Coast Cities" };
+            // Set the data context to the current instance of the class
+            DataContext = this;
+            this.cageNumberText.Text = this.bird.CageNumber;
+            this.speciesOfBirdText.SelectedItem = this.bird.Species;
+            this.subsprciesText.SelectedItem = this.bird.Subspecies;
+            genderText.SelectedItem = this.bird.Gender;
+            hatchDateText.Text = this.bird.HatchDate;
+            serialNumberText.Text = this.bird.SerialNumber;
+            fatherSerialText.Text = this.bird.FatherSerial;
+            motherSerialText.Text = this.bird.MotherSerial;
+        }
+        public NewBird(Bird bird,string message)
+        {
+            this.bird = bird;
+            InitializeComponent();
+            ganders = new string[] { "Male", "Female" };
+            // Set the data context to the current instance of the class
+            DataContext = this;
+            this.cageNumberText.Text = this.bird.CageNumber;
+            this.speciesOfBirdText.SelectedItem = this.bird.Species;
+            this.subsprciesText.SelectedItem = this.bird.Subspecies;
+            genderText.SelectedItem = null;
+            hatchDateText.Text = "";
+            serialNumberText.Text = "";
+            if (bird.Gender=="Male")
+            {
+                fatherSerialText.Text = this.bird.SerialNumber;
+                motherSerialText.Text = message;
+            }
+            else
+            {
+                motherSerialText.Text = this.bird.SerialNumber;
+                fatherSerialText.Text = message;
+            }
+            cageNumberText.IsEnabled = false;
+            speciesOfBirdText.IsEnabled = false;
+            subsprciesText.IsEnabled = false;
+            fatherSerialText.IsEnabled = false;
+            motherSerialText.IsEnabled = false;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -66,7 +117,7 @@ namespace HabitatBirdsApplication
 
         }
         // Method to validate the serial number format and uniqueness
-        public Boolean isValidSerial(string serial,string type)
+        public bool isValidSerial(string serial,string type)
         {
             if (string.IsNullOrEmpty(serial))
             {
@@ -75,7 +126,7 @@ namespace HabitatBirdsApplication
             }
             foreach (char c in serial)
             {
-                if (!char.IsDigit(c))
+                if (!char.IsDigit(c)) 
                 {
                     MessageBox.Show("Error:You can only write digits to "+type+"'s box!");
                     return false;
@@ -115,15 +166,14 @@ namespace HabitatBirdsApplication
             {
                 WorkBook workBook = WorkBook.Load(fileNameXls);
                 WorkSheet workSheet = workBook.GetWorkSheet("Cage");
-
                 // Iterate over the rows in the worksheet and check for matching serial numbers
-                for (int i = 2; i <= workSheet.RowCount; i++)
+                for (int i = 2; i < workSheet.RowCount+1; i++)
                 {
                     string value = workSheet["A" + i].Value.ToString();
-                    if (value.Equals(cage))
+                    Trace.WriteLine(value);
+                    if (value==cage)
                     {
-                        MessageBox.Show("Cage name does not exist in the system.");
-                        return false;
+                        return true;
                     }
                 }
             }
@@ -131,11 +181,12 @@ namespace HabitatBirdsApplication
             {
                 MessageBox.Show("Error - unable to search in Excel file\n" + ex.Message);
             }
-            return true;
+            MessageBox.Show("Cage name does not exist in the system.");
+            return false;
         }
 
         // Method to check if a string is not null or empty
-        private Boolean isNotNullOrEmpty(string s, string box)
+        private bool isNotNullOrEmpty(string s, string box)
         {
             if (string.IsNullOrEmpty(s))
             {
@@ -157,9 +208,9 @@ namespace HabitatBirdsApplication
             // Validate the input fields
             if (isNotNullOrEmpty(serialNumber,"Srial Number") && isNotNullOrEmpty(hatchDate, "Hatch Date") && isNotNullOrEmpty(cageNumber, "Cage Number") && isNotNullOrEmpty(fatherSerial, "Father Serial") && isNotNullOrEmpty(motherSerial,"Mother Serial") && isNotNullOrEmpty(selectSpecies, "Species") && isNotNullOrEmpty(selectSubspecies, "Subspecies") && isNotNullOrEmpty(gender, "Gender"))
             {
-                if(isValidSerial(serialNumber, "Serial Number")&& IsSerialNumberUnique(serialNumber) &&isValidSerial(motherSerial, "Mother Serial") && isValidSerial(fatherSerial,"Father Serial")&& IsCageIn(cageNumber))
+                if(isValidSerial(serialNumber, "Serial Number")&& IsSerialNumberUnique(serialNumber) && IsCageIn(cageNumber))
                 {
-                    MessageBox.Show(serialNumber + " " + hatchDate + " " + cageNumber + " " + fatherSerial + " " + motherSerial + " " + selectSpecies + " " + selectSubspecies + " " + gender);
+                    MessageBox.Show("New bird has created");
                     openFile(serialNumber, hatchDate, cageNumber, fatherSerial, motherSerial, selectSpecies, selectSubspecies, gender);
                     serialNumberText.Text = " ";
                     hatchDateText.Text = " ";
@@ -220,7 +271,7 @@ namespace HabitatBirdsApplication
                 WorkSheet workSheet = workBook.GetWorkSheet("Birds");
 
                 string nextRow = (workSheet.RowCount+1).ToString();
-
+                
                 // Set the cell values for the bird information
                 workSheet['A'+nextRow].Value = serialNumber;
                 workSheet['B'+nextRow].Value = selectSpecies;
@@ -228,9 +279,17 @@ namespace HabitatBirdsApplication
                 workSheet['D'+nextRow].Value = hatchDate;
                 workSheet['E'+nextRow].Value = gender;
                 workSheet['F'+nextRow].Value = cageNumber;
-                workSheet['G'+nextRow].Value = "777";
-                workSheet['H'+nextRow].Value = "777";
-
+                workSheet['J' + nextRow].Value = "FALSE";
+                if (bird == null)
+                {
+                    workSheet['G' + nextRow].Value = "777";
+                    workSheet['H' + nextRow].Value = "777";
+                }
+                else
+                {
+                    workSheet['G' + nextRow].Value = fatherSerial;
+                    workSheet['H' + nextRow].Value = motherSerial;
+                }
                 // Save the workbook
                 workBook.SaveAs(fileNameXls);
             }

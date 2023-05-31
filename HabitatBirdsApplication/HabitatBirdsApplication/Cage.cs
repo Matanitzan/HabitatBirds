@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HabitatBirdsApplication
 {
-    internal class Cage
+    public class Cage
     {
         public string serialNumber { set; get; }
         public float lenght { set; get; } 

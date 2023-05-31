@@ -19,6 +19,7 @@ using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 using IronXL;
 using System.Reflection.Metadata;
+using System.Reflection;
 
 namespace HabitatBirdsApplication
 {
@@ -27,12 +28,31 @@ namespace HabitatBirdsApplication
     /// </summary>
     public partial class NewCage : System.Windows.Window
     {
+        public string[] metiral { get; set; }
         List<Cage> cages ;
         Cage cage;
-        string path = @"C:\Users\Matan\Desktop\Birds.xlsx";
+        string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Birds.xlsx");
+        //string path = @"C:\Users\Matan\Desktop\Birds.xlsx";
+        public string matirel_choose;
         public NewCage()
         {
+            metiral = new string[] { "Wood", "Iron", "Plastic" };
             InitializeComponent();
+            DataContext = this;
+            cages = new List<Cage>();
+        }
+        public NewCage(Cage cageToEdit)
+        {
+            metiral = new string[] { "Wood", "Iron","Plastic" };
+            this.cage = cageToEdit;
+            InitializeComponent();
+            DataContext = this;
+            SerialNumberText.Text = cage.serialNumber;
+            WidthCageText.Text = cage.width.ToString();
+            HeightCageText.Text = cage.Heigth.ToString();
+            LenghtCageText.Text = cage.lenght.ToString();
+            MetiralOptions.SelectedItem = cage.material;
+            SerialNumberText.IsEnabled = false;
             cages = new List<Cage>();
         }
         private void openFile()
@@ -82,7 +102,11 @@ namespace HabitatBirdsApplication
                         sheet['C' + lastRow].Value = cage.getLenght();
                         sheet['D' + lastRow].Value = cage.getWidth();
                         sheet['E' + lastRow].Value = cage.getHeigth();
-                        Trace.WriteLine("serial:" + cage.getSerial());
+                        SerialNumberText.Text = "";
+                        WidthCageText.Text = "";
+                        HeightCageText.Text = "";
+                        LenghtCageText.Text = "";
+                        MetiralOptions.SelectedItem = null;
                         myWorkBook.SaveAs(path);
                         MessageBox.Show("New Cage created!");
                     }
@@ -148,6 +172,12 @@ namespace HabitatBirdsApplication
             MainPage mainPage = new MainPage();
             this.Visibility = Visibility.Hidden;
             mainPage.Show();
+        }
+
+        private void MetiralOptions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var select = sender as ComboBox;
+            matirel_choose = select.SelectedItem as string;
         }
     }
 }

@@ -22,12 +22,16 @@ namespace HabitatBirdsApplication
     public partial class CageInfo : System.Windows.Window
     {
         FindCage selected_cage;
-        string path = @"C:\Users\Matan\Desktop\Birds.xlsx";
-        public CageInfo(FindCage Fcage)
+        //string path = @"C:\Users\Matan\Desktop\Birds.xlsx";
+        string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Birds.xlsx");
+
+        Cage yourCage;
+        public CageInfo(FindCage Fcage, Cage yourCage)
         {
-            InitializeComponent();
             this.selected_cage = Fcage;
-            BirdsList.ItemsSource = SearchBirdsInExcel(selected_cage.serial_number_cage(),"F");
+            this.yourCage = yourCage;
+            InitializeComponent();
+            BirdsList.ItemsSource = SearchBirdsInExcel(selected_cage.serial_number_cage(), "F");
             ShowInfo();
         }
         public void ShowInfo()
@@ -126,5 +130,11 @@ namespace HabitatBirdsApplication
             showBird.Show();
         }
 
+        private void btnEditCage(object sender, RoutedEventArgs e)
+        {
+            NewCage editCage = new NewCage(yourCage);
+            this.Visibility = Visibility.Hidden;
+            editCage.Show();
+        }
     }
 }

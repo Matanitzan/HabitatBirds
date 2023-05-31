@@ -36,16 +36,13 @@
                 <SolidColorBrush Color="#FFEAEAEA" Opacity="1"/>
             </TextBox.Background>
         </TextBox>
-        <ComboBox x:Name="MetiralOptions" HorizontalAlignment="Left" Margin="188,285,0,0" VerticalAlignment="Top" Width="189" FontFamily="Segoe UI Black" FontSize="14">
+        <ComboBox x:Name="MetiralOptions" HorizontalAlignment="Left" Margin="188,285,0,0" VerticalAlignment="Top" Width="185" Height ="24" ItemsSource ="{Binding metiral}" IsEditable="True" SelectionChanged="MetiralOptions_SelectionChanged" FontFamily="Segoe UI Black" FontSize="14">
             <ComboBox.Background>
-                <LinearGradientBrush EndPoint="0,1" Opacity="0.65">
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFF0F0F0"/>
-                    <GradientStop Color="#FFA8A6A1" Offset="1"/>
+                    <GradientStop Color="#FFE2E2E2" Offset="0.78"/>
                 </LinearGradientBrush>
             </ComboBox.Background>
-            <ComboBoxItem>Iron</ComboBoxItem>
-            <ComboBoxItem>Plastic</ComboBoxItem>
-            <ComboBoxItem>Wood</ComboBoxItem>
         </ComboBox>
         <Button x:Name="btnAddCage" Content="Save" HorizontalAlignment="Left" Margin="355,352,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Segoe UI Black" Foreground="#FFF3EFEF" BorderThickness="0,0,0,0" Width="100" Height="35" BorderBrush="#FF707070" Click="btnAddCage_Click">
             <Button.Background>

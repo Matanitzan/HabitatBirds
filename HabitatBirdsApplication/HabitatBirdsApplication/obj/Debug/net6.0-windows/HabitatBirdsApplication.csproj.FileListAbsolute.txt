@@ -57,3 +57,5 @@ C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplicat
 C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\MainPage.baml
 C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\NewBird.baml
 C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\NewCage.baml
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\ComboBoxParents.g.cs
+C:\Users\Matan\Desktop\HabitatBirds\HabitatBirdsApplication\HabitatBirdsApplication\obj\Debug\net6.0-windows\ComboBoxParents.baml

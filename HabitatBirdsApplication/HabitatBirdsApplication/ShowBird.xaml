@@ -61,6 +61,10 @@
 
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10">
             <Button Content="+ Add Chicks" Click="AddChicksButton_Click" Background="#FFA8A6A1" Foreground="White" BorderBrush="Transparent" FontSize="14" FontWeight="Bold" Padding="10 5" Width="139" FontFamily="Segoe UI Black"/>
+            <Button  x:Name="btnEditBird1" Content="Edit bird" Background="#FFA8A6A1" Foreground="White" BorderBrush="Transparent" FontSize="14" FontWeight="Bold" Padding="10 5" Width="139" FontFamily="Segoe UI Black" Click="btneditBird"/>
+            
         </StackPanel>
+        <Button Content="Back" Margin="18,23,409,171" Background="#FFA8A6A1" Foreground="#FFF9F6F6" FontFamily="Segoe UI Black" FontSize="14" Click="btnBack"/>
+
     </Grid>
 </Window>
